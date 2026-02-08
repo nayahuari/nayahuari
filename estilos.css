@@ -80,13 +80,32 @@ body {
     color: white;
 }
 
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
 /* Hero section */
 .hero {
     height: 90vh;
     background: linear-gradient(
         rgba(8,26,73,0.7),
         rgba(230,0,126,0.4)
-    ), url('../img/hero-bg.jpg') center/cover no-repeat;
+    ), url('../img/fondo.jpeg') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,7 +149,7 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Sections */
+/* Section styles */
 .section {
     padding: 4rem 2rem;
     text-align: center;
@@ -143,7 +162,6 @@ body {
     text-align: center;
 }
 
-/* Headings */
 h2 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
@@ -156,12 +174,51 @@ h3 {
     margin-bottom: 1rem;
 }
 
-/* Timelines */
+/* Director Section */
+.director-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.director-frame {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.director-img {
+    background: url('../img/directora.jpeg') center/cover no-repeat;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.floating-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--rosa-mexicano);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Timeline */
 .timeline {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     position: relative;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .timeline::before {
@@ -217,6 +274,8 @@ h3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .gallery-item {
@@ -224,6 +283,7 @@ h3 {
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
 .gallery-item img {
@@ -247,6 +307,48 @@ h3 {
 
 .gallery-item:hover .gallery-overlay {
     opacity: 1;
+}
+
+/* Social buttons */
+.social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    margin: 0 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn.whatsapp:hover { color:#25D366; border-color:#25D366; }
+.social-btn.facebook:hover { color:#1877F2; border-color:#1877F2; }
+.social-btn.instagram:hover { color:#E4405F; border-color:#E4405F; }
+.social-btn.youtube:hover { color:#FF0000; border-color:#FF0000; }
+.social-btn.tiktok:hover { background: linear-gradient(45deg,#00f2ea,#ff0050); color:white; border:none; }
+
+/* Reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--transition-speed) ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Responsive */
@@ -284,5 +386,13 @@ h3 {
 
     .timeline::before {
         left: 20px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero h3 {
+        font-size: 1.5rem;
     }
 }
