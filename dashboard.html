@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Nayahuari</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Librería QR (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="zarape-line"></div>
+    
+    <!-- Botón Móvil -->
+    <button class="dashboard-menu-btn" onclick="toggleSidebar()">
+        <span class="material-icons">menu</span>
+    </button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-text text-center" style="margin-bottom: 2rem; color:white;">
+                <strong>NAYAHUARI</strong><br><small>PANEL</small>
+            </div>
+            
+            <nav id="menuContainer">
+                <!-- Se llena con JS según rol -->
+            </nav>
+
+            <div style="margin-top: auto;">
+                <button onclick="cerrarSesion()" class="menu-item" style="color: #ef4444; background:none; border:none; width:100%; text-align:left;">
+                    <span class="material-icons">logout</span> Salir
+                </button>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <div class="header-bar">
+                <h1>Hola, <span id="userName">Usuario</span></h1>
+                <span class="subtitle-badge" id="userRole">ALUMNO</span>
+            </div>
+
+            <!-- Contenido Dinámico Simulado -->
+            <div id="contentArea">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><span class="material-icons">event</span></div>
+                        <div><h3>3</h3><p>Eventos este mes</p></div>
+                    </div>
+                </div>
+                
+                <div class="card-table">
+                    <h3>Bienvenido al sistema</h3>
+                    <p>Selecciona una opción del menú para comenzar.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
