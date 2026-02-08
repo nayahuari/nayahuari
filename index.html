@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayahuari | Tradición Viva</title>
-    
-    <!-- Fuentes e Iconos -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS Principal -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}?v=final">
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-
-    <!-- Línea decorativa superior -->
     <div class="zarape-line"></div>
-
-    <!-- NAVEGACIÓN -->
+    
     <nav class="navbar">
       <div class="logo-container">
-        <!-- Logo -->
-        <img src="{{ url_for('static', filename='img/logo.jpeg') }}" alt="Nayahuari" class="logo-img" onerror="this.style.display='none'">
+        <!-- Reemplaza con tu imagen real -->
+        <img src="logo.jpeg" alt="Nayahuari" class="logo-img" onerror="this.style.display='none'">
         <div class="logo-text">
             <span>BALLET FOLKLÓRICO</span>
             <strong>NAYAHUARI</strong>
         </div>
       </div>
 
-      <!-- Menú Escritorio -->
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#directora">Directora</a></li>
@@ -36,20 +28,17 @@
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#agenda">Agenda</a></li>
         <li><a href="#ubicacion">Ubicación</a></li>
-
-        <!-- Botón Panel (Solo visible si es admin por JS) -->
+        
+        <!-- Lógica de botón manejada por JS -->
+        <li><a href="login.html" id="btnAuth" class="btn-login"><span class="material-icons">account_circle</span> Acceso</a></li>
+        
         <li id="nav-admin-panel" style="display: none;">
-            <a href="/dashboard" class="btn btn-primary" style="padding: 5px 15px; font-size: 0.8rem;">
-                PANEL
-            </a>
+            <a href="dashboard.html" class="btn btn-primary" style="padding: 5px 15px; font-size: 0.8rem;">PANEL</a>
         </li>
       </ul>
-      
-      <!-- Menú Móvil -->
       <div class="menu-toggle"><span class="material-icons">menu</span></div>
     </nav>
 
-    <!-- HERO (Portada) -->
     <header id="inicio" class="hero">
       <div class="hero-content reveal">
         <h3>Bajo la dirección de Carmen Servin</h3>
@@ -59,16 +48,13 @@
       </div>
     </header>
 
-    <!-- SECCIÓN DIRECTORA -->
     <section id="directora" class="container section-padding">
       <div class="grid-2 director-wrapper">
         <div class="text-content reveal">
           <span class="subtitle-badge">Dirección General</span>
           <h2>Mtra. Carmen Servin</h2>
           <p>Con años de trayectoria preservando nuestras raíces, la maestra Carmen ha llevado al Ballet Folklórico Nayahuari a representar nuestra cultura con dignidad y excelencia.</p>
-          <div class="director-quote">
-            <p>"La danza es el lenguaje oculto del alma mexicana."</p>
-          </div>
+          <div class="director-quote"><p>"La danza es el lenguaje oculto del alma mexicana."</p></div>
         </div>
         <div class="image-content reveal">
           <div class="director-frame">
@@ -79,123 +65,81 @@
       </div>
     </section>
 
-    <!-- SECCIÓN TRAYECTORIA -->
     <section id="trayectoria" class="section-gray section-padding">
       <div class="container">
         <div class="text-center mb-2 reveal">
             <h2 class="section-title">Nuestra Historia</h2>
-            <p class="section-subtitle">Un viaje lleno de pasión y logros.</p>
         </div>
-        
         <div class="timeline">
-            <!-- Hito 1 -->
             <div class="timeline-item left reveal">
                 <div class="timeline-icon"><span class="material-icons">star</span></div>
-                <div class="timeline-content">
-                    <span class="year-badge">2015</span>
-                    <h3>El Inicio</h3>
-                    <p>Nace el sueño con solo 8 bailarines apasionados.</p>
-                </div>
+                <div class="timeline-content"><span class="year-badge">2015</span><h3>El Inicio</h3><p>Nace el sueño con solo 8 bailarines apasionados.</p></div>
             </div>
-            <!-- Hito 2 -->
             <div class="timeline-item right reveal">
                 <div class="timeline-icon"><span class="material-icons">emoji_events</span></div>
-                <div class="timeline-content">
-                    <span class="year-badge">2018</span>
-                    <h3>Reconocimiento Nacional</h3>
-                    <p>Obtuvimos mención honorífica por vestuario y ejecución.</p>
-                </div>
+                <div class="timeline-content"><span class="year-badge">2018</span><h3>Reconocimiento</h3><p>Mención honorífica estatal.</p></div>
             </div>
-            <!-- Hito 3 -->
             <div class="timeline-item left reveal">
                 <div class="timeline-icon"><span class="material-icons">flight_takeoff</span></div>
-                <div class="timeline-content">
-                    <span class="year-badge">2024</span>
-                    <h3>Expansión</h3>
-                    <p>Nayahuari crece, abriendo nuevos grupos infantiles y juveniles.</p>
-                </div>
+                <div class="timeline-content"><span class="year-badge">2024</span><h3>Expansión</h3><p>Nuevos grupos infantiles.</p></div>
             </div>
         </div>
       </div>
     </section>
     
-    <!-- SECCIÓN GALERÍA -->
     <section id="galeria" class="container section-padding">
-        <div class="text-center mb-2 reveal">
-            <h2 class="section-title">Nuestra Galería</h2>
-            <p class="section-subtitle">Momentos inolvidables en el escenario.</p>
-        </div>
+        <div class="text-center mb-2 reveal"><h2 class="section-title">Galería</h2></div>
         <div class="gallery-grid reveal">
-            <!-- Imágenes de ejemplo -->
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500&q=60" alt="Danza"><div class="gallery-overlay"></div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=500&q=60" alt="Danza"><div class="gallery-overlay"></div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=500&q=60" alt="Danza"><div class="gallery-overlay"></div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=500&q=60" alt="Danza"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500&q=60" alt="1"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=500&q=60" alt="2"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=500&q=60" alt="3"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=500&q=60" alt="4"><div class="gallery-overlay"></div></div>
         </div>
     </section>
 
-    <!-- SECCIÓN AGENDA -->
     <section id="agenda" class="section-dark section-padding">
-      <div class="container" style="position: relative; z-index: 2;">
-        <div class="agenda-header reveal">
-          <h2>Próximas Presentaciones</h2>
-        </div>
+      <div class="container">
+        <div class="agenda-header reveal"><h2>Próximas Presentaciones</h2></div>
+        <!-- Contenido estático para GitHub Pages -->
         <div class="calendar-grid" id="eventsContainer">
-          <p style="color: #aaa; text-align: center;">Cargando cartelera...</p>
+             <!-- Se llena con JS simulado -->
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN UBICACIÓN -->
     <section id="ubicacion" class="container section-padding">
       <h2 class="text-center mb-2 reveal">Ensaya con Nosotros</h2>
-      
       <div class="grid-2" style="align-items: start;">
-        <!-- Mapa -->
         <div class="map-box reveal">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.8681942994626!2d-100.4593488!3d20.6348925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3508aff8f5865%3A0xdc6e39f648bded6a!2sDelegaci%C3%B3n%20Felix%20Osores%20Sotomayor!5e1!3m2!1ses-419!2smx!4v1769979032191!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.309536863266!2d-103.3957248!3d20.6572559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDM5JzI2LjEiTiAxMDPCsDIzJzQ0LjYiVw!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-
-        <!-- Horarios -->
         <div class="schedule-box reveal">
-          <h3 style="color: var(--azul-talavera); display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
-            <span class="material-icons">schedule</span> Horarios de Clase
+          <h3 style="color: var(--azul-talavera); display: flex; align-items: center; gap: 10px;">
+            <span class="material-icons">schedule</span> Horarios
           </h3>
           <ul class="schedule-list">
-            <li>
-              <span class="group-name">Principiantes</span>
-              <span class="group-time">Sábados: 4:00 PM - 6:00 PM</span>
-            </li>
-            <li>
-              <span class="group-name">Compañía Titular</span>
-              <span class="group-time">Sábados: 5:30 PM - 9:00 PM</span>
-            </li>
+            <li><strong>Principiantes:</strong> Lun y Mié 4-6 PM</li>
+            <li><strong>Intermedios:</strong> Mar y Jue 5-7 PM</li>
+            <li><strong>Compañía:</strong> Sábados 9-2 PM</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="section-dark footer-main">
+    <footer class="section-dark">
       <div class="container">
-          <h2 style="color: var(--amarillo-cempasuchil); margin-bottom: 1rem; letter-spacing: 2px;">NAYAHUARI</h2>
-          <p style="opacity: 0.8; margin-bottom: 2rem;">Orgullo, Tradición y Pasión.</p>
-          
+          <h2 style="color: var(--amarillo-cempasuchil);">NAYAHUARI</h2>
           <div class="social-links">
-              <a href="https://wa.me/" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-              <a href="https://www.facebook.com/groups/906569266067020/?ref=share&mibextid=NSMWBT" target="_blank" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/balletfolkloriconayahuari?igsh=M3gwa293MjE3Zzcz&utm_source=ig_contact_invite" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.tiktok.com/@ballethuariqro?_r=1&_t=ZS-93Y5akgPIoL" target="_blank" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
-              <a href="https://www.youtube.com/@BalletfolcloricoNáyahuari" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
+              <a href="#" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
           </div>
-
-          <div class="copyright">
-              <p>Ballet Folklórico Nayahuari © 2026. Todos los derechos reservados.</p>
-          </div>
+          <p>© 2026 Ballet Folklórico Nayahuari.</p>
       </div>
     </footer>
 
-    <!-- Lógica JS -->
-    <script src="{{ url_for('static', filename='js/main.js') }}?v=final"></script>
+    <script src="main.js"></script>
 </body>
 </html>
