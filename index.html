@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Nayahuari | Tradición Viva</title>
 
     <!-- ICONOS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- ESTILOS -->
+    <!-- CSS LOCAL -->
     <link rel="stylesheet" href="estilos.css">
 </head>
 
@@ -18,48 +19,99 @@
 <div class="zarape-line"></div>
 
 <nav class="navbar">
-    <div class="logo-container">
-        <strong>NAYAHUARI</strong>
+    <div class="logo logo-container">
+        <img src="logo.jpeg" alt="Nayahuari" class="logo-img">
+
+        <div class="logo-text">
+            <span>BALLET FOLKLÓRICO</span>
+            <strong>NAYAHUARI</strong>
+        </div>
     </div>
 
     <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#directora">Directora</a></li>
+        <li><a href="#trayectoria">Historia</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#agenda">Agenda</a></li>
         <li><a href="#ubicacion">Ubicación</a></li>
     </ul>
+
+    <div class="menu-toggle">
+        <span class="material-icons">menu</span>
+    </div>
 </nav>
 
 <header id="inicio" class="hero">
-    <div class="hero-content">
-        <h3>Ballet Folklórico</h3>
+    <div class="hero-content reveal">
+        <h3>Bajo la dirección de Carmen Servín</h3>
         <h1>NAYAHUARI</h1>
-        <p>Tradición viva de México</p>
-        <a href="#agenda" class="btn-primary">Ver Presentaciones</a>
+        <p>Orgullo, Tradición y Corazón en cada zapateado.</p>
+        <a href="#agenda" class="btn-primary">Ver Próximas Presentaciones</a>
     </div>
 </header>
 
-<section id="directora" class="section">
-    <h2>Dirección General</h2>
-    <p>Mtra. Carmen Servín</p>
+<section id="directora" class="container section-padding">
+    <div class="grid-2">
+        <div class="reveal">
+            <span class="subtitle-badge">Dirección General</span>
+            <h2>Mtra. Carmen Servín</h2>
+            <p>
+                Con años de trayectoria preservando nuestras raíces, la maestra Carmen
+                ha llevado al Ballet Folklórico Nayahuari a representar nuestra cultura
+                con dignidad y excelencia.
+            </p>
+            <div class="director-quote">
+                “La danza es el lenguaje oculto del alma mexicana.”
+            </div>
+        </div>
+
+        <div class="director-frame reveal">
+            <div class="director-img"></div>
+            <div class="floating-badge">Fundadora</div>
+        </div>
+    </div>
 </section>
 
-<section id="galeria" class="section">
-    <h2>Galería</h2>
-    <p>Aquí irán las fotos</p>
+<section id="galeria" class="container section-padding">
+    <h2 class="text-center">Nuestra Galería</h2>
+
+    <div class="gallery-grid reveal">
+        <div class="gallery-item"><img src="danza1.jpeg"></div>
+        <div class="gallery-item"><img src="danza2.jpeg"></div>
+        <div class="gallery-item"><img src="danza3.jpeg"></div>
+        <div class="gallery-item"><img src="danza4.jpeg"></div>
+    </div>
 </section>
 
-<section id="agenda" class="section-dark">
-    <h2>Próximas Presentaciones</h2>
+<section id="agenda" class="section-dark section-padding">
+    <div class="container">
+        <h2>Próximas Presentaciones</h2>
+        <p>Muy pronto más eventos</p>
+    </div>
 </section>
 
-<section id="ubicacion" class="section">
-    <h2>Ubicación</h2>
+<section id="ubicacion" class="container section-padding">
+    <h2 class="text-center">Ensaya con Nosotros</h2>
+
+    <div class="map-box reveal">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.8681942994626!2d-100.4593488!3d20.6348925"
+            loading="lazy"></iframe>
+    </div>
 </section>
 
 <footer class="section-dark">
-    <p>© 2026 Ballet Folklórico Nayahuari</p>
+    <h2>NAYAHUARI</h2>
+
+    <div class="social-links">
+        <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <p>Ballet Folklórico Nayahuari © 2026</p>
 </footer>
 
 <script src="main.js"></script>
