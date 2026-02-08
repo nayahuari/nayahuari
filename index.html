@@ -3,563 +3,206 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Nayahuari | Tradición Viva</title>
-
+    
+    <!-- Fuentes e Iconos -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}?v=restaurado">
-
-    <style>
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1.8rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 0 10px;
-            border: 2px solid transparent;
-            position: relative;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        .social-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .social-btn.whatsapp:hover {
-            color: #25D366;
-            border-color: #25D366;
-        }
-
-        .social-btn.facebook:hover {
-            color: #1877F2;
-            border-color: #1877F2;
-        }
-
-        .social-btn.instagram:hover {
-            color: #E4405F;
-            border-color: #E4405F;
-        }
-
-        .social-btn.youtube:hover {
-            color: #FF0000;
-            border-color: #FF0000;
-        }
-
-        .social-btn.tiktok:hover {
-            background: linear-gradient(45deg, #00f2ea, #ff0050);
-            color: white;
-            border: none;
-        }
-
-        .click-anim {
-            animation: pulsacion 0.3s ease;
-        }
-
-        @keyframes pulsacion {
-            0% { transform: scale(0.9); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-    </style>
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}?v=final">
 </head>
-
 <body>
 
+    <!-- Línea decorativa superior -->
     <div class="zarape-line"></div>
 
+    <!-- NAVEGACIÓN -->
     <nav class="navbar">
-        <div class="logo logo-container">
-            <img src="{{ url_for('static', filename='img/logo.jpeg') }}"
-                 alt="Nayahuari"
-                 class="logo-img"
-                 onerror="this.style.display='none'">
-
-            <div class="logo-text">
-                <span>BALLET FOLKLÓRICO</span>
-                <strong>NAYAHUARI</strong>
-            </div>
+      <div class="logo-container">
+        <!-- Logo -->
+        <img src="{{ url_for('static', filename='img/logo.jpeg') }}" alt="Nayahuari" class="logo-img" onerror="this.style.display='none'">
+        <div class="logo-text">
+            <span>BALLET FOLKLÓRICO</span>
+            <strong>NAYAHUARI</strong>
         </div>
+      </div>
 
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#directora">Directora</a></li>
-            <li><a href="#trayectoria">Historia</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#agenda">Agenda</a></li>
-            <li><a href="#ubicacion">Ubicación</a></li>
+      <!-- Menú Escritorio -->
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#directora">Directora</a></li>
+        <li><a href="#trayectoria">Historia</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+        
+        <!-- Botón que lleva a la página de Login separada -->
+        <li>
+            <a href="/login" class="btn-login">
+                <span class="material-icons">account_circle</span> Acceso
+            </a>
+        </li>
 
-            <li id="nav-admin-panel" style="display: none;">
-                <a href="/dashboard" class="btn-panel-admin">
-                    <span class="material-icons" style="font-size:16px;">dashboard</span>
-                    PANEL
-                </a>
-            </li>
-        </ul>
-
-        <div class="menu-toggle">
-            <span class="material-icons">menu</span>
-        </div>
+        <!-- Botón Panel (Solo visible si es admin por JS) -->
+        <li id="nav-admin-panel" style="display: none;">
+            <a href="/dashboard" class="btn btn-primary" style="padding: 5px 15px; font-size: 0.8rem;">
+                PANEL
+            </a>
+        </li>
+      </ul>
+      
+      <!-- Menú Móvil -->
+      <div class="menu-toggle"><span class="material-icons">menu</span></div>
     </nav>
 
+    <!-- HERO (Portada) -->
     <header id="inicio" class="hero">
-        <div class="hero-content reveal">
-            <h3>Bajo la dirección de Carmen Servin</h3>
-            <h1>NAYAHUARI</h1>
-            <p>Orgullo, Tradición y Corazón en cada zapateado.</p>
-            <a href="#agenda" class="btn-primary">Ver Próximas Presentaciones</a>
-        </div>
+      <div class="hero-content reveal">
+        <h3>Bajo la dirección de Carmen Servin</h3>
+        <h1>NAYAHUARI</h1>
+        <p>Orgullo, Tradición y Corazón en cada zapateado.</p>
+        <a href="#agenda" class="btn btn-primary">Ver Próximas Presentaciones</a>
+      </div>
     </header>
 
+    <!-- SECCIÓN DIRECTORA -->
     <section id="directora" class="container section-padding">
-        <div class="grid-2 director-wrapper">
-            <div class="text-content reveal">
-                <span class="subtitle-badge">Dirección General</span>
-                <h2>Mtra. Carmen Servin</h2>
-                <p>
-                    Con años de trayectoria preservando nuestras raíces, la maestra Carmen
-                    ha llevado al Ballet Folklórico Nayahuari a representar nuestra cultura
-                    con dignidad y excelencia.
-                </p>
-                <div class="director-quote">
-                    <p>"La danza es el lenguaje oculto del alma mexicana."</p>
-                </div>
-            </div>
-
-            <div class="image-content reveal">
-                <div class="director-frame">
-                    <div class="director-img"></div>
-                    <div class="floating-badge">Fundadora</div>
-                </div>
-            </div>
+      <div class="grid-2 director-wrapper">
+        <div class="text-content reveal">
+          <span class="subtitle-badge">Dirección General</span>
+          <h2>Mtra. Carmen Servin</h2>
+          <p>Con años de trayectoria preservando nuestras raíces, la maestra Carmen ha llevado al Ballet Folklórico Nayahuari a representar nuestra cultura con dignidad y excelencia.</p>
+          <div class="director-quote">
+            <p>"La danza es el lenguaje oculto del alma mexicana."</p>
+          </div>
         </div>
+        <div class="image-content reveal">
+          <div class="director-frame">
+            <div class="director-img"></div> 
+            <div class="floating-badge">Fundadora</div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- SECCIÓN TRAYECTORIA -->
     <section id="trayectoria" class="section-gray section-padding">
-        <div class="container">
-            <div class="text-center mb-2 reveal">
-                <h2 class="section-title" style="font-size: 2.5rem; color: var(--dark-bg);">
-                    Nuestra Historia
-                </h2>
+      <div class="container">
+        <div class="text-center mb-2 reveal">
+            <h2 class="section-title">Nuestra Historia</h2>
+            <p class="section-subtitle">Un viaje lleno de pasión y logros.</p>
+        </div>
+        
+        <div class="timeline">
+            <!-- Hito 1 -->
+            <div class="timeline-item left reveal">
+                <div class="timeline-icon"><span class="material-icons">star</span></div>
+                <div class="timeline-content">
+                    <span class="year-badge">2015</span>
+                    <h3>El Inicio</h3>
+                    <p>Nace el sueño con solo 8 bailarines apasionados.</p>
+                </div>
             </div>
-
-            <div class="timeline">
-                <div class="timeline-item left reveal">
-                    <div class="timeline-icon">
-                        <span class="material-icons">star</span>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="year-badge">2015</span>
-                        <h3>El Inicio</h3>
-                        <p>Nace el sueño con solo 8 bailarines apasionados.</p>
-                    </div>
+            <!-- Hito 2 -->
+            <div class="timeline-item right reveal">
+                <div class="timeline-icon"><span class="material-icons">emoji_events</span></div>
+                <div class="timeline-content">
+                    <span class="year-badge">2018</span>
+                    <h3>Reconocimiento Nacional</h3>
+                    <p>Obtuvimos mención honorífica por vestuario y ejecución.</p>
                 </div>
-
-                <div class="timeline-item right reveal">
-                    <div class="timeline-icon">
-                        <span class="material-icons">emoji_events</span>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="year-badge">2018</span>
-                        <h3>Reconocimiento Nacional</h3>
-                        <p>Obtuvimos mención honorífica en concurso estatal.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item left reveal">
-                    <div class="timeline-icon">
-                        <span class="material-icons">flight_takeoff</span>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="year-badge">2024</span>
-                        <h3>Expansión</h3>
-                        <p>Nayahuari crece, abriendo nuevos grupos infantiles.</p>
-                    </div>
+            </div>
+            <!-- Hito 3 -->
+            <div class="timeline-item left reveal">
+                <div class="timeline-icon"><span class="material-icons">flight_takeoff</span></div>
+                <div class="timeline-content">
+                    <span class="year-badge">2024</span>
+                    <h3>Expansión</h3>
+                    <p>Nayahuari crece, abriendo nuevos grupos infantiles y juveniles.</p>
                 </div>
             </div>
         </div>
+      </div>
     </section>
-
+    
+    <!-- SECCIÓN GALERÍA -->
     <section id="galeria" class="container section-padding">
         <div class="text-center mb-2 reveal">
-            <h2 class="section-title" style="font-size: 2.5rem; color: var(--dark-bg); margin-bottom: 1rem;">
-                Nuestra Galería
-            </h2>
+            <h2 class="section-title">Nuestra Galería</h2>
+            <p class="section-subtitle">Momentos inolvidables en el escenario.</p>
         </div>
-
         <div class="gallery-grid reveal">
-            <div class="gallery-item">
-                <img src="static\img\danza1.jpeg" alt="Danza 1">
-                <div class="gallery-overlay"></div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="static\img\danza2.jpeg" alt="Danza 2">
-                <div class="gallery-overlay"></div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="static\img\danza3.jpeg" alt="Danza 3">
-                <div class="gallery-overlay"></div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="static\img\danza4.jpeg" alt="Danza 4">
-                <div class="gallery-overlay"></div>
-            </div>
+            <!-- Imágenes de ejemplo -->
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500&q=60" alt="Danza"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=500&q=60" alt="Danza"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=500&q=60" alt="Danza"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=500&q=60" alt="Danza"><div class="gallery-overlay"></div></div>
         </div>
     </section>
 
+    <!-- SECCIÓN AGENDA -->
     <section id="agenda" class="section-dark section-padding">
-        <div class="container" style="position: relative; z-index: 2;">
-            <div class="agenda-header reveal">
-                <h2>Próximas Presentaciones</h2>
-            </div>
-            <div class="calendar-grid" id="eventsContainer">
-                <p style="color: #aaa;">Cargando cartelera...</p>
-            </div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="agenda-header reveal">
+          <h2>Próximas Presentaciones</h2>
         </div>
+        <div class="calendar-grid" id="eventsContainer">
+          <p style="color: #aaa; text-align: center;">Cargando cartelera...</p>
+        </div>
+      </div>
     </section>
 
+    <!-- SECCIÓN UBICACIÓN -->
     <section id="ubicacion" class="container section-padding">
-        <h2 class="text-center mb-2 reveal" style="font-size: 2.5rem;">
-            Ensaya con Nosotros
-        </h2>
-
-        <div class="grid-2" style="align-items: start;">
-            <div class="map-box reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.8681942994626!2d-100.4593488!3d20.6348925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3508aff8f5865%3A0xdc6e39f648bded6a!2sDelegaci%C3%B3n%20Felix%20Osores%20Sotomayor!5e1!3m2!1ses-419!2smx!4v1769979032191!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="schedule-box reveal">
-                <h3 style="color: var(--azul-talavera); display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
-                    <span class="material-icons">schedule</span>
-                    Horarios de Clase
-                </h3>
-
-                <ul class="schedule-list" style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                        <span class="group-name" style="display: block; font-weight: bold; color: var(--rosa-oscuro);">
-                            Principiantes
-                        </span>
-                        <span class="group-time" style="color: var(--text-light);">
-                            Sábado: 4:00 PM - 6:00 PM
-                        </span>
-                    </li>
-
-                    <li style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                        <span class="group-name" style="display: block; font-weight: bold; color: var(--naranja-barro);">
-                            Compañia Titular 
-                        </span>
-                        <span class="group-time" style="color: var(--text-light);">
-                            Sábado: 5:30 PM 9:00 PM
-                        </span>
-                    </li>
-                </ul>
-            </div>
+      <h2 class="text-center mb-2 reveal">Ensaya con Nosotros</h2>
+      
+      <div class="grid-2" style="align-items: start;">
+        <!-- Mapa -->
+        <div class="map-box reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.8681942994626!2d-100.4593488!3d20.6348925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3508aff8f5865%3A0xdc6e39f648bded6a!2sDelegaci%C3%B3n%20Felix%20Osores%20Sotomayor!5e1!3m2!1ses-419!2smx!4v1769979032191!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+
+        <!-- Horarios -->
+        <div class="schedule-box reveal">
+          <h3 style="color: var(--azul-talavera); display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
+            <span class="material-icons">schedule</span> Horarios de Clase
+          </h3>
+          <ul class="schedule-list">
+            <li>
+              <span class="group-name">Principiantes</span>
+              <span class="group-time">Sábados: 4:00 PM - 6:00 PM</span>
+            </li>
+            <li>
+              <span class="group-name">Compañía Titular</span>
+              <span class="group-time">Sábados: 5:30 PM - 9:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <footer class="section-dark" style="padding: 4rem 0; text-align: center; margin-top: 4rem; border-top: 4px solid var(--amarillo-cempasuchil);">
-        <div class="container">
-            <h2 style="color: var(--amarillo-cempasuchil); margin-bottom: 1rem; letter-spacing: 2px;">
-                NAYAHUARI
-            </h2>
+    <!-- FOOTER -->
+    <footer class="section-dark footer-main">
+      <div class="container">
+          <h2 style="color: var(--amarillo-cempasuchil); margin-bottom: 1rem; letter-spacing: 2px;">NAYAHUARI</h2>
+          <p style="opacity: 0.8; margin-bottom: 2rem;">Orgullo, Tradición y Pasión.</p>
+          
+          <div class="social-links">
+              <a href="https://wa.me/" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://www.facebook.com/groups/906569266067020/?ref=share&mibextid=NSMWBT" target="_blank" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/balletfolkloriconayahuari?igsh=M3gwa293MjE3Zzcz&utm_source=ig_contact_invite" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.tiktok.com/@ballethuariqro?_r=1&_t=ZS-93Y5akgPIoL" target="_blank" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
+              <a href="https://www.youtube.com/@BalletfolcloricoNáyahuari" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+          </div>
 
-            <p style="opacity: 0.8; font-size: 1.1rem; margin-bottom: 2rem;">
-                Orgullo, Tradición y Pasión.
-            </p>
-
-            <div class="social-links" style="display: flex; justify-content: center; gap: 25px; margin-bottom: 2rem; position: relative; z-index: 10;">
-                <a href="https://wa.me" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.facebook.com/groups/906569266067020/?ref=share&mibextid=NSMWBT" target="_blank" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/balletfolkloriconayahuari?igsh=MTFla3poMDk0cGhvaA==" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@ballethuariqro?_r=1&_t=ZS-93Y5akgPIoL" target="_blank" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@BalletfolcloricoNáyahuari" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
-            </div>
-
-            <div style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.5;">
-                <p>Ballet Folklórico Nayahuari © 2026.</p>
-            </div>
-        </div>
+          <div class="copyright">
+              <p>Ballet Folklórico Nayahuari © 2026. Todos los derechos reservados.</p>
+          </div>
+      </div>
     </footer>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="document.getElementById('loginModal').style.display='none'">&times;</span>
-
-            <div class="login-header">
-                <h2 style="color: var(--rosa-mexicano);" id="modalTitle">Bienvenido</h2>
-                <p>Ingresa al portal</p>
-            </div>
-
-            <div id="loginSection">
-                <form id="universalLoginForm" style="margin-top: 20px;">
-                    <div class="input-group">
-                        <span class="material-icons input-icon">person</span>
-                        <input type="text" id="loginUser" placeholder="Usuario / Email" required>
-                    </div>
-
-                    <div class="input-group">
-                        <span class="material-icons input-icon">lock</span>
-                        <input type="password" id="loginPass" placeholder="Contraseña" required>
-                    </div>
-
-                    <button type="submit" class="btn-primary full-width">
-                        Iniciar Sesión
-                    </button>
-                </form>
-
-                <p class="auth-toggle-text">
-                    ¿No tienes cuenta?
-                    <span class="auth-toggle-link" onclick="toggleAuthMode('register')">
-                        Regístrate como Alumno
-                    </span>
-                </p>
-            </div>
-
-            <div id="registerSection" style="display:none;">
-                <form id="publicRegisterForm" style="margin-top: 20px;">
-                    <div class="input-group">
-                        <span class="material-icons input-icon">badge</span>
-                        <input type="text" id="regNombre" placeholder="Nombre Completo" required>
-                    </div>
-
-                    <div class="input-group">
-                        <span class="material-icons input-icon">email</span>
-                        <input type="email" id="regUser" placeholder="Correo (ej: usuario@gmail.com)" required>
-                    </div>
-
-                    <div class="input-group">
-                        <span class="material-icons input-icon">phone</span>
-                        <input type="text" id="regTel" placeholder="Teléfono">
-                    </div>
-
-                    <div class="input-group">
-                        <span class="material-icons input-icon">lock</span>
-                        <input type="password" id="regPass" placeholder="Contraseña" required>
-                    </div>
-
-                    <button type="submit" class="btn-success full-width">
-                        Crear Cuenta
-                    </button>
-                </form>
-
-                <p class="auth-toggle-text">
-                    ¿Ya tienes cuenta?
-                    <span class="auth-toggle-link" onclick="toggleAuthMode('login')">
-                        Inicia Sesión
-                    </span>
-                </p>
-            </div>
-
-            <div id="loginMessage" class="login-message" style="margin-top:15px; font-weight:bold;"></div>
-        </div>
-    </div>
-
-    <script src="{{ url_for('static', filename='js/main.js') }}?v=restaurado"></script>
-
-    <script>
-        function abrirLogin() {
-            if (localStorage.getItem('usuario_logueado') === 'true') {
-                window.location.href = '/dashboard';
-            } else {
-                document.getElementById('loginModal').style.display = 'block';
-                toggleAuthMode('login');
-            }
-        }
-
-        document.querySelectorAll('.social-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                this.classList.add('click-anim');
-                setTimeout(() => this.classList.remove('click-anim'), 300);
-            });
-        });
-    </script>
-
+    <!-- Lógica JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}?v=final"></script>
 </body>
 </html>
-
-:root {
-    --rosa-mexicano: #E6007E; --rosa-oscuro: #B40062; --azul-talavera: #1338BE; --azul-noche: #081a49;
-    --amarillo-cempasuchil: #FFD700; --naranja-barro: #E65100; --verde-agave: #00695C; --verde-claro: #10b981;
-    --primary: var(--rosa-mexicano); --primary-dark: var(--rosa-oscuro); --accent: var(--amarillo-cempasuchil);
-    --dark-bg: var(--azul-noche); --light-bg: #fffbf0; --card-bg: #ffffff;
-    --text-main: #263238; --text-light: #546E7A;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); --shadow-hover: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
-    --glass: rgba(8, 26, 73, 0.95); --radius: 16px;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-body { background-color: var(--light-bg); color: var(--text-main); line-height: 1.6; }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-ul { list-style: none; }
-button { font-family: inherit; }
-
-.zarape-line { height: 6px; background: linear-gradient(to right, var(--rosa-mexicano), var(--azul-talavera), var(--amarillo-cempasuchil), var(--verde-agave), var(--naranja-barro)); width: 100%; position: relative; z-index: 2000; }
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); } .reveal.active { opacity: 1; transform: translateY(0); }
-.animate-fade { animation: fadeIn 1s ease-out forwards; } .animate-slide { animation: slideUp 0.8s ease-out forwards; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-/* NAVBAR */
-.navbar { background: var(--glass); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); }
-.logo-container { display: flex; align-items: center; gap: 15px; } .logo-img { height: 55px; width: auto; object-fit: contain; }
-.logo strong { font-size: 1.5rem; color: var(--accent); letter-spacing: -0.5px; } .logo span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
-.nav-links { display: flex; gap: 20px; align-items: center; } .nav-links a:hover { color: var(--accent); }
-.btn-login { background: transparent; border: 2px solid var(--accent); color: var(--accent); padding: 6px 18px; border-radius: 50px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
-.btn-login:hover { background: var(--accent); color: var(--azul-noche); transform: scale(1.05); }
-
-/* HERO */
-.hero { height: 90vh; background: linear-gradient(to bottom, rgba(8, 26, 73, 0.6), rgba(230, 0, 126, 0.4)), url('../img/fondo.jpeg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
-.hero-content { z-index: 2; max-width: 800px; padding-top: 2rem; padding: 0 20px; }
-.hero h3 { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); font-weight: 600; }
-.hero h1 { font-size: 5rem; margin-bottom: 1.5rem; line-height: 1; text-shadow: 2px 2px 0px var(--rosa-mexicano); }
-.btn-primary { background: var(--rosa-mexicano); color: white; padding: 12px 30px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px rgba(230, 0, 126, 0.4); text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
-.btn-primary:hover { background: var(--azul-talavera); transform: translateY(-3px); }
-
-/* DIRECTOR */
-.director-frame { position: relative; padding: 10px; border: 2px dashed var(--rosa-mexicano); border-radius: 20px; transform: rotate(2deg); transition: transform 0.3s; }
-.director-frame:hover { transform: rotate(0deg); }
-.director-img { height: 500px; width: 100%; border-radius: 15px; background-color: #e2e8f0; background-image: url('../img/directora.jpeg'); background-size: cover; background-position: center; box-shadow: -15px 15px 0 var(--azul-noche); transform: rotate(-2deg); border: 4px solid white; }
-.floating-badge { position: absolute; bottom: 40px; right: -20px; z-index: 10; background: var(--amarillo-cempasuchil); color: var(--azul-noche); padding: 12px 30px; border-radius: 12px; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,0,0,0.15); animation: float 4s ease-in-out infinite; }
-.director-quote { border-left: 4px solid var(--amarillo-cempasuchil); padding-left: 20px; margin-top: 2rem; font-style: italic; color: var(--text-main); font-size: 1.1rem; }
-.subtitle-badge { background: rgba(230, 0, 126, 0.1); color: var(--rosa-mexicano); padding: 5px 15px; border-radius: 20px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
-
-/* LAYOUT & TIMELINE */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; } .section-padding { padding: 6rem 0; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; } .text-center { text-align: center; }
-.section-gray { background-color: #FDF2F8; }
-.timeline { position: relative; max-width: 900px; margin: 0 auto; }
-.timeline::after { content: ''; position: absolute; width: 6px; background: linear-gradient(to bottom, var(--rosa-mexicano), var(--azul-talavera)); top: 0; bottom: 0; left: 50%; margin-left: -3px; border-radius: 10px; }
-.timeline-item { padding: 20px 50px; position: relative; width: 50%; } .timeline-item.left { left: 0; text-align: right; } .timeline-item.right { left: 50%; text-align: left; }
-.timeline-icon { position: absolute; width: 50px; height: 50px; top: 20px; z-index: 10; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px rgba(255,255,255,0.5), 0 4px 10px rgba(0,0,0,0.2); }
-.timeline-item.left .timeline-icon { right: -25px; border: 3px solid var(--rosa-mexicano); color: var(--rosa-mexicano); }
-.timeline-item.right .timeline-icon { left: -25px; border: 3px solid var(--azul-talavera); color: var(--azul-talavera); }
-.timeline-content { padding: 30px; background: white; border-radius: var(--radius); box-shadow: var(--shadow); position: relative; transition: transform 0.3s; border-top: 5px solid var(--naranja-barro); }
-.year-badge { background: var(--dark-bg); color: var(--amarillo-cempasuchil); padding: 5px 15px; border-radius: 20px; font-weight: bold; }
-
-/* GALERIA CONTROLADA (FIX: NO MÁS IMÁGENES GIGANTES) */
-.gallery-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-    gap: 25px; 
-}
-.gallery-item { 
-    height: 350px; /* Altura fija para uniformidad */
-    border-radius: var(--radius); 
-    overflow: hidden; 
-    position: relative; 
-    box-shadow: var(--shadow); 
-    cursor: pointer; 
-}
-.gallery-item img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; /* Recorta la imagen para llenar el espacio sin deformar */
-    transition: transform 0.5s ease; 
-}
-.gallery-item:hover img { transform: scale(1.1); }
-.gallery-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 20px; opacity: 0; transition: opacity 0.3s; } 
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-
-/* AGENDA */
-.section-dark { background-color: var(--azul-noche); color: white; position: relative; }
-.calendar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.event-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 25px; display: flex; align-items: center; gap: 20px; transition: 0.3s; }
-.event-card:hover { border-color: var(--rosa-mexicano); background: rgba(255,255,255,0.1); }
-.event-card .date { background: var(--amarillo-cempasuchil); color: var(--azul-noche); padding: 15px 10px; border-radius: 12px; text-align: center; min-width: 85px; font-weight: 800; }
-.date .day { display: block; font-size: 2rem; }
-.map-box { height: 450px; border-radius: var(--radius); overflow: hidden; border: 4px solid white; box-shadow: var(--shadow); }
-.schedule-box { background: white; padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow); border-top: 6px solid var(--rosa-mexicano); }
-.group-name { font-size: 1.1rem; font-weight: bold; color: var(--azul-talavera); display: block; }
-
-/* DASHBOARD */
-.dashboard-layout { display: flex; min-height: 100vh; }
-.sidebar { width: 260px; background: var(--dark-bg); color: white; padding: 2rem; display: flex; flex-direction: column; }
-.menu-item { padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; color: #94a3b8; display: flex; gap: 10px; transition: 0.2s; cursor: pointer; }
-.menu-item:hover { background: rgba(255,255,255,0.1); color: white; } .menu-item.active { background: var(--rosa-mexicano); color: white; }
-.main-content { flex: 1; padding: 4rem 3rem; overflow-y: auto; background-color: var(--light-bg); }
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-bottom: 4rem; }
-.stat-card { background: white; padding: 2rem; border-radius: 16px; display: flex; align-items: center; gap: 20px; box-shadow: var(--shadow); }
-.stat-icon { width: 60px; height: 60px; border-radius: 50%; background: #fdf2f8; color: var(--rosa-mexicano); display: flex; justify-content: center; align-items: center; font-size: 1.8rem; }
-.card-table { background: white; padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); overflow: visible; margin-bottom: 4rem; }
-
-.form-grid-responsive { display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-end; }
-.form-group-item { flex: 1 1 220px; margin-bottom: 15px; } .form-group-item.btn-container { flex: 0 0 auto; margin-bottom: 15px; }
-.form-control { width: 100%; padding: 14px 18px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; transition: border-color 0.3s; } .form-control:focus { outline: none; border-color: var(--rosa-mexicano); box-shadow: 0 0 0 4px rgba(230, 0, 126, 0.1); }
-.btn-success { background: var(--verde-agave); color: white; padding: 12px 25px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
-.btn-success:hover { background: #004D40; transform: translateY(-2px); }
-.tabla-moderna { width: 100%; border-collapse: separate; border-spacing: 0; }
-.tabla-moderna th { text-align: left; padding: 1.5rem; background: #f9f9f9; border-bottom: 2px solid #eee; color: var(--text-light); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-.tabla-moderna td { padding: 1.5rem; border-bottom: 1px solid #eee; }
-.btn-delete, .btn-edit { width: 40px; height: 40px; border-radius: 50%; border: none; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; margin-left: 5px; }
-.btn-delete { background: #fee2e2; color: #ef4444; } .btn-edit { background: #e0f2fe; color: #0284c7; }
-.checkbox-asistencia { width: 25px; height: 25px; cursor: pointer; accent-color: var(--rosa-mexicano); }
-.user-welcome-card { background: linear-gradient(135deg, var(--rosa-mexicano), var(--azul-talavera)); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin-bottom: 2rem; box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25); }
-
-/* QR */
-#qrcode-container { padding: 20px; background: #f8fafc; border-radius: 16px; margin: 20px 0; border: 2px dashed var(--azul-talavera); display: flex; flex-direction: column; align-items: center; }
-#qrcode img { display: block; margin: 0 auto; }
-
-/* Modal */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(8, 26, 73, 0.85); backdrop-filter: blur(5px); }
-.modal-content { background: white; margin: 10vh auto; padding: 3rem; width: 90%; max-width: 400px; border-radius: 20px; border-top: 8px solid var(--rosa-mexicano); overflow-y: auto; max-height: 90vh; }
-.input-group input { width: 100%; padding: 12px 12px 12px 40px; margin-bottom: 15px; border: 2px solid #eee; border-radius: 8px; }
-.input-icon { position: absolute; left: 12px; top: 12px; color: #aaa; }
-.close-btn { position: absolute; right: 20px; top: 15px; font-size: 1.5rem; cursor: pointer; }
-.auth-toggle-text { text-align: center; margin-top: 15px; font-size: 0.9rem; color: var(--text-light); }
-.auth-toggle-link { color: var(--rosa-mexicano); font-weight: bold; cursor: pointer; text-decoration: underline; }
-
-/* SOCIAL ICONS */
-.social-btn { display: inline-flex; justify-content: center; align-items: center; width: 55px; height: 55px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.1); color: white; font-size: 1.8rem; text-decoration: none; transition: all 0.3s ease; margin: 0 10px; border: 2px solid transparent; position: relative; z-index: 100; cursor: pointer; }
-.social-btn:hover { transform: translateY(-5px) scale(1.1); background-color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-.social-btn.whatsapp:hover { color: #25D366; border-color: #25D366; } .social-btn.facebook:hover { color: #1877F2; border-color: #1877F2; } .social-btn.instagram:hover { color: #E4405F; border-color: #E4405F; } .social-btn.youtube:hover { color: #FF0000; border-color: #FF0000; } .social-btn.tiktok:hover { color: #000000; border-color: #00f2ea; background: linear-gradient(45deg, #00f2ea, #ff0050); color:white; border:none; }
-.click-anim { animation: pulsacion 0.3s ease; } @keyframes pulsacion { 0% { transform: scale(0.9); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-
-/* Dashboard Menu Móvil */
-.dashboard-menu-btn { display: none; position: fixed; top: 15px; left: 15px; z-index: 2000; background: var(--rosa-mexicano); color: white; padding: 10px; border-radius: 50%; box-shadow: var(--shadow); border: none; cursor: pointer; }
-.sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 900; }
-
-@media (max-width: 768px) {
-    .navbar { padding: 15px; flex-wrap: wrap; }
-    .logo-container { width: 100%; justify-content: space-between; }
-    .menu-toggle { display: block; font-size: 2rem; color: white; cursor: pointer; }
-    .nav-links { display: none; width: 100%; flex-direction: column; background: var(--dark-bg); position: absolute; top: 100%; left: 0; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-    .nav-links.active { display: flex; }
-    .grid-2 { grid-template-columns: 1fr; gap: 40px; }
-    .sidebar { display: flex; position: fixed; top: 0; left: -100%; width: 80%; height: 100vh; z-index: 1000; transition: left 0.3s; }
-    .sidebar.active { left: 0; }
-    .sidebar-overlay.active { display: block; }
-    .dashboard-menu-btn { display: block; }
-    .dashboard-layout { display: block; position: relative; }
-    .main-content { padding: 5rem 1.5rem 2rem; }
-    .form-grid-responsive { gap: 20px; }
-    .timeline::after { left: 20px; } .timeline-item { width: 100%; padding-left: 60px; padding-right: 10px; text-align: left; } .timeline-item.right { left: 0; } .timeline-icon { left: 0; } .timeline-item.left .timeline-icon, .timeline-item.right .timeline-icon { left: -4px; right: auto; }
-}
