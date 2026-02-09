@@ -27,25 +27,42 @@ button { font-family: inherit; }
 .btn-login { background: transparent; border: 2px solid var(--accent); color: var(--accent); padding: 6px 18px; border-radius: 50px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
 .btn-login:hover { background: var(--accent); color: var(--azul-noche); transform: scale(1.05); }
 
-/* HERO */
-/* NOTA: Ajusté la ruta de ../img/ a img/ para que funcione en carpeta raiz */
-.hero { height: 90vh; background: linear-gradient(to bottom, rgba(8, 26, 73, 0.6), rgba(230, 0, 126, 0.4)), url('img/fondo.jpeg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
+/* HERO - AQUI VA EL FONDO PRINCIPAL */
+.hero { 
+    height: 90vh; 
+    /* Esta línea carga tu imagen de fondo */
+    background: linear-gradient(to bottom, rgba(8, 26, 73, 0.6), rgba(230, 0, 126, 0.4)), url('img/fondo.jpeg'); 
+    background-size: cover; 
+    background-position: center; 
+    display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; 
+}
 .hero-content { z-index: 2; max-width: 800px; padding-top: 2rem; padding: 0 20px; }
 .hero h3 { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); font-weight: 600; }
 .hero h1 { font-size: 5rem; margin-bottom: 1.5rem; line-height: 1; text-shadow: 2px 2px 0px var(--rosa-mexicano); }
 .btn-primary { background: var(--rosa-mexicano); color: white; padding: 12px 30px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px rgba(230, 0, 126, 0.4); text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
 .btn-primary:hover { background: var(--azul-talavera); transform: translateY(-3px); }
 
-/* DIRECTOR */
+/* DIRECTOR - AQUI VA LA FOTO DE LA DIRECTORA */
 .director-frame { position: relative; padding: 10px; border: 2px dashed var(--rosa-mexicano); border-radius: 20px; transform: rotate(2deg); transition: transform 0.3s; }
 .director-frame:hover { transform: rotate(0deg); }
-/* NOTA: Ajusté la ruta de ../img/ a img/ */
-.director-img { height: 500px; width: 100%; border-radius: 15px; background-color: #e2e8f0; background-image: url('img/directora.jpeg'); background-size: cover; background-position: center; box-shadow: -15px 15px 0 var(--azul-noche); transform: rotate(-2deg); border: 4px solid white; }
+.director-img { 
+    height: 500px; 
+    width: 100%; 
+    border-radius: 15px; 
+    background-color: #e2e8f0; 
+    /* Esta línea carga la foto de la directora */
+    background-image: url('img/directora.jpeg'); 
+    background-size: cover; 
+    background-position: center; 
+    box-shadow: -15px 15px 0 var(--azul-noche); 
+    transform: rotate(-2deg); 
+    border: 4px solid white; 
+}
 .floating-badge { position: absolute; bottom: 40px; right: -20px; z-index: 10; background: var(--amarillo-cempasuchil); color: var(--azul-noche); padding: 12px 30px; border-radius: 12px; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,0,0,0.15); animation: float 4s ease-in-out infinite; }
 .director-quote { border-left: 4px solid var(--amarillo-cempasuchil); padding-left: 20px; margin-top: 2rem; font-style: italic; color: var(--text-main); font-size: 1.1rem; }
 .subtitle-badge { background: rgba(230, 0, 126, 0.1); color: var(--rosa-mexicano); padding: 5px 15px; border-radius: 20px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
 
-/* LAYOUT & TIMELINE */
+/* RESTO DEL DISEÑO */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; } .section-padding { padding: 6rem 0; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; } .text-center { text-align: center; }
 .section-gray { background-color: #FDF2F8; }
@@ -58,31 +75,13 @@ button { font-family: inherit; }
 .timeline-content { padding: 30px; background: white; border-radius: var(--radius); box-shadow: var(--shadow); position: relative; transition: transform 0.3s; border-top: 5px solid var(--naranja-barro); }
 .year-badge { background: var(--dark-bg); color: var(--amarillo-cempasuchil); padding: 5px 15px; border-radius: 20px; font-weight: bold; }
 
-/* GALERIA */
-.gallery-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-    gap: 25px; 
-}
-.gallery-item { 
-    height: 350px; 
-    border-radius: var(--radius); 
-    overflow: hidden; 
-    position: relative; 
-    box-shadow: var(--shadow); 
-    cursor: pointer; 
-}
-.gallery-item img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: transform 0.5s ease; 
-}
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+.gallery-item { height: 350px; border-radius: var(--radius); overflow: hidden; position: relative; box-shadow: var(--shadow); cursor: pointer; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .gallery-item:hover img { transform: scale(1.1); }
 .gallery-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 20px; opacity: 0; transition: opacity 0.3s; } 
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-/* AGENDA */
 .section-dark { background-color: var(--azul-noche); color: white; position: relative; }
 .calendar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 .event-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 25px; display: flex; align-items: center; gap: 20px; transition: 0.3s; }
@@ -93,7 +92,6 @@ button { font-family: inherit; }
 .schedule-box { background: white; padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow); border-top: 6px solid var(--rosa-mexicano); }
 .group-name { font-size: 1.1rem; font-weight: bold; color: var(--azul-talavera); display: block; }
 
-/* DASHBOARD & FORMS */
 .dashboard-layout { display: flex; min-height: 100vh; }
 .sidebar { width: 260px; background: var(--dark-bg); color: white; padding: 2rem; display: flex; flex-direction: column; }
 .menu-item { padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; color: #94a3b8; display: flex; gap: 10px; transition: 0.2s; cursor: pointer; }
@@ -105,7 +103,6 @@ button { font-family: inherit; }
 .btn-success { background: var(--verde-agave); color: white; padding: 12px 25px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
 .btn-success:hover { background: #004D40; transform: translateY(-2px); }
 
-/* QR & MODAL */
 #qrcode-container { padding: 20px; background: #f8fafc; border-radius: 16px; margin: 20px 0; border: 2px dashed var(--azul-talavera); display: flex; flex-direction: column; align-items: center; }
 #qrcode img { display: block; margin: 0 auto; }
 
@@ -119,13 +116,11 @@ button { font-family: inherit; }
 .auth-toggle-link { color: var(--rosa-mexicano); font-weight: bold; cursor: pointer; text-decoration: underline; }
 .full-width { width: 100%; }
 
-/* SOCIAL ICONS */
 .social-btn { display: inline-flex; justify-content: center; align-items: center; width: 55px; height: 55px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.1); color: white; font-size: 1.8rem; text-decoration: none; transition: all 0.3s ease; margin: 0 10px; border: 2px solid transparent; position: relative; z-index: 100; cursor: pointer; }
 .social-btn:hover { transform: translateY(-5px) scale(1.1); background-color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 .social-btn.whatsapp:hover { color: #25D366; border-color: #25D366; } .social-btn.facebook:hover { color: #1877F2; border-color: #1877F2; } .social-btn.instagram:hover { color: #E4405F; border-color: #E4405F; } .social-btn.youtube:hover { color: #FF0000; border-color: #FF0000; } .social-btn.tiktok:hover { color: #000000; border-color: #00f2ea; background: linear-gradient(45deg, #00f2ea, #ff0050); color:white; border:none; }
 .click-anim { animation: pulsacion 0.3s ease; } @keyframes pulsacion { 0% { transform: scale(0.9); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-/* MEDIA QUERIES */
 .menu-toggle { display: none; }
 @media (max-width: 768px) {
     .navbar { padding: 15px; flex-wrap: wrap; }
