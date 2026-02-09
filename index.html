@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Nayahuari | Tradición Viva</title>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
-    <!-- Zarape line -->
     <div class="zarape-line"></div>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo logo-container">
-            <img src="logo.jpeg" alt="Nayahuari" class="logo-img">
+            <img src="img/logo.jpeg"
+                 alt="Nayahuari"
+                 class="logo-img"
+                 onerror="this.style.display='none'">
+
             <div class="logo-text">
                 <span>BALLET FOLKLÓRICO</span>
                 <strong>NAYAHUARI</strong>
+            </div>
+            
+            <div class="menu-toggle">
+                <span class="material-icons">menu</span>
             </div>
         </div>
 
@@ -30,14 +39,17 @@
             <li><a href="#galeria">Galería</a></li>
             <li><a href="#agenda">Agenda</a></li>
             <li><a href="#ubicacion">Ubicación</a></li>
-        </ul>
 
-        <div class="menu-toggle"><span class="material-icons">menu</span></div>
+            <li>
+                <button id="btnAuth" class="btn-login" onclick="abrirLogin()">
+                    <span class="material-icons">account_circle</span>
+                    Acceso
+                </button>
+            </li>
+        </ul>
     </nav>
 
-    <!-- Hero -->
     <header id="inicio" class="hero">
-        <div class="hero-bg" style="background-image: url('fondo.jpeg');"></div>
         <div class="hero-content reveal">
             <h3>Bajo la dirección de Carmen Servin</h3>
             <h1>NAYAHUARI</h1>
@@ -46,103 +58,307 @@
         </div>
     </header>
 
-    <!-- Directora -->
-    <section id="directora" class="section reveal">
-        <div class="director-wrapper">
-            <div class="text-content">
+    <section id="directora" class="container section-padding">
+        <div class="grid-2 director-wrapper">
+            <div class="text-content reveal">
                 <span class="subtitle-badge">Dirección General</span>
                 <h2>Mtra. Carmen Servin</h2>
-                <p>Con años de trayectoria preservando nuestras raíces, la maestra Carmen ha llevado al Ballet Folklórico Nayahuari a representar nuestra cultura con dignidad y excelencia.</p>
-                <blockquote>"La danza es el lenguaje oculto del alma mexicana."</blockquote>
+                <p>
+                    Con años de trayectoria preservando nuestras raíces, la maestra Carmen
+                    ha llevado al Ballet Folklórico Nayahuari a representar nuestra cultura
+                    con dignidad y excelencia.
+                </p>
+                <div class="director-quote">
+                    <p>"La danza es el lenguaje oculto del alma mexicana."</p>
+                </div>
             </div>
-            <div class="director-frame">
-                <img src="directora.jpeg" alt="Carmen Servin" class="director-img reveal">
-                <div class="floating-badge">Fundadora</div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Historia -->
-    <section id="trayectoria" class="section section-dark reveal">
-        <h2>Nuestra Historia</h2>
-        <div class="timeline">
-            <div class="timeline-item left reveal">
-                <div class="timeline-icon"><span class="material-icons">star</span></div>
-                <div class="timeline-content">
-                    <span class="year-badge">2015</span>
-                    <h3>El Inicio</h3>
-                    <p>Nace el sueño con solo 8 bailarines apasionados.</p>
-                </div>
-            </div>
-            <div class="timeline-item right reveal">
-                <div class="timeline-icon"><span class="material-icons">emoji_events</span></div>
-                <div class="timeline-content">
-                    <span class="year-badge">2018</span>
-                    <h3>Reconocimiento Nacional</h3>
-                    <p>Obtuvimos mención honorífica en concurso estatal.</p>
-                </div>
-            </div>
-            <div class="timeline-item left reveal">
-                <div class="timeline-icon"><span class="material-icons">flight_takeoff</span></div>
-                <div class="timeline-content">
-                    <span class="year-badge">2024</span>
-                    <h3>Expansión</h3>
-                    <p>Nayahuari crece, abriendo nuevos grupos infantiles.</p>
+            <div class="image-content reveal">
+                <div class="director-frame">
+                    <div class="director-img"></div>
+                    <div class="floating-badge">Fundadora</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Galería -->
-    <section id="galeria" class="section reveal">
-        <h2>Nuestra Galería</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="danza1.jpeg" alt="Danza 1"></div>
-            <div class="gallery-item"><img src="danza2.jpeg" alt="Danza 2"></div>
-            <div class="gallery-item"><img src="danza3.jpeg" alt="Danza 3"></div>
-            <div class="gallery-item"><img src="danza4.jpeg" alt="Danza 4"></div>
-        </div>
-    </section>
-
-    <!-- Agenda -->
-    <section id="agenda" class="section-dark reveal">
-        <h2>Próximas Presentaciones</h2>
-        <div id="eventsContainer">
-            <p style="color: #aaa;">Cargando cartelera...</p>
-        </div>
-    </section>
-
-    <!-- Ubicación -->
-    <section id="ubicacion" class="section reveal">
-        <h2>Ensaya con Nosotros</h2>
-        <div class="director-wrapper">
-            <div class="map-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.8681942994626!2d-100.4593488!3d20.6348925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3508aff8f5865%3A0xdc6e39f648bded6a!2sDelegaci%C3%B3n%20Felix%20Osores%20Sotomayor!5e1!3m2!1ses-419!2smx!4v1769979032191!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <section id="trayectoria" class="section-gray section-padding">
+        <div class="container">
+            <div class="text-center mb-2 reveal">
+                <h2 class="section-title" style="font-size: 2.5rem; color: var(--dark-bg);">
+                    Nuestra Historia
+                </h2>
             </div>
-            <div class="schedule-box">
-                <h3><span class="material-icons">schedule</span> Horarios de Clase</h3>
-                <ul>
-                    <li><strong style="color: var(--rosa-oscuro)">Principiantes:</strong> Sábado 4:00 PM - 6:00 PM</li>
-                    <li><strong style="color: var(--naranja-barro)">Compañía Titular:</strong> Sábado 5:30 PM - 9:00 PM</li>
+
+            <div class="timeline">
+                <div class="timeline-item left reveal">
+                    <div class="timeline-icon">
+                        <span class="material-icons">star</span>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="year-badge">2015</span>
+                        <h3>El Inicio</h3>
+                        <p>Nace el sueño con solo 8 bailarines apasionados.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-icon">
+                        <span class="material-icons">emoji_events</span>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="year-badge">2018</span>
+                        <h3>Reconocimiento Nacional</h3>
+                        <p>Obtuvimos mención honorífica en concurso estatal.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left reveal">
+                    <div class="timeline-icon">
+                        <span class="material-icons">flight_takeoff</span>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="year-badge">2024</span>
+                        <h3>Expansión</h3>
+                        <p>Nayahuari crece, abriendo nuevos grupos infantiles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="container section-padding">
+        <div class="text-center mb-2 reveal">
+            <h2 class="section-title" style="font-size: 2.5rem; color: var(--dark-bg); margin-bottom: 1rem;">
+                Nuestra Galería
+            </h2>
+        </div>
+
+        <div class="gallery-grid reveal">
+            <div class="gallery-item">
+                <img src="img/danza1.jpeg" alt="Danza 1">
+                <div class="gallery-overlay"></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/danza2.jpeg" alt="Danza 2">
+                <div class="gallery-overlay"></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/danza3.jpeg" alt="Danza 3">
+                <div class="gallery-overlay"></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/danza4.jpeg" alt="Danza 4">
+                <div class="gallery-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agenda" class="section-dark section-padding">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="agenda-header reveal">
+                <h2>Próximas Presentaciones</h2>
+            </div>
+            <div class="calendar-grid" id="eventsContainer">
+                <div class="event-card">
+                   <div class="date"><span class="day">15</span>SEP</div>
+                   <div>
+                       <h3 style="color:var(--accent)">Fiestas Patrias</h3>
+                       <p>Plaza de Armas, 8:00 PM</p>
+                   </div>
+                </div>
+                <div class="event-card">
+                    <div class="date"><span class="day">02</span>NOV</div>
+                    <div>
+                        <h3 style="color:var(--accent)">Día de Muertos</h3>
+                        <p>Teatro de la Ciudad, 6:00 PM</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ubicacion" class="container section-padding">
+        <h2 class="text-center mb-2 reveal" style="font-size: 2.5rem;">
+            Ensaya con Nosotros
+        </h2>
+
+        <div class="grid-2" style="align-items: start;">
+            <div class="map-box reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.999!2d-100.39!3d20.58!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDM1JzAwLjAiTiAxMDDCsDIzJzAwLjAiVw!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" width="600" height="450" style="border:0; width:100%; height:100%;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="schedule-box reveal">
+                <h3 style="color: var(--azul-talavera); display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
+                    <span class="material-icons">schedule</span>
+                    Horarios de Clase
+                </h3>
+
+                <ul class="schedule-list" style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                        <span class="group-name" style="display: block; font-weight: bold; color: var(--rosa-oscuro);">
+                            Principiantes
+                        </span>
+                        <span class="group-time" style="color: var(--text-light);">
+                            Sábado: 4:00 PM - 6:00 PM
+                        </span>
+                    </li>
+
+                    <li style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                        <span class="group-name" style="display: block; font-weight: bold; color: var(--naranja-barro);">
+                            Compañia Titular 
+                        </span>
+                        <span class="group-time" style="color: var(--text-light);">
+                            Sábado: 5:30 PM - 9:00 PM
+                        </span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="section-dark">
-        <h2 style="color: var(--amarillo-cempasuchil)">NAYAHUARI</h2>
-        <p style="opacity: 0.8;">Orgullo, Tradición y Pasión.</p>
-        <div class="social-links">
-            <a href="https://wa.me" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.facebook.com/groups/906569266067020/" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/balletfolkloriconayahuari" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@ballethuariqro" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/@BalletfolcloricoNáyahuari" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+    <footer class="section-dark" style="padding: 4rem 0; text-align: center; margin-top: 4rem; border-top: 4px solid var(--amarillo-cempasuchil);">
+        <div class="container">
+            <h2 style="color: var(--amarillo-cempasuchil); margin-bottom: 1rem; letter-spacing: 2px;">
+                NAYAHUARI
+            </h2>
+
+            <p style="opacity: 0.8; font-size: 1.1rem; margin-bottom: 2rem;">
+                Orgullo, Tradición y Pasión.
+            </p>
+
+            <div class="social-links" style="display: flex; justify-content: center; gap: 25px; margin-bottom: 2rem; position: relative; z-index: 10;">
+                <a href="#" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <div style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.5;">
+                <p>Ballet Folklórico Nayahuari © 2026.</p>
+            </div>
         </div>
-        <p style="opacity:0.5; font-size:0.9rem;">Ballet Folklórico Nayahuari © 2026</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="document.getElementById('loginModal').style.display='none'">×</span>
+
+            <div class="login-header">
+                <h2 style="color: var(--rosa-mexicano);" id="modalTitle">Bienvenido</h2>
+                <p>Ingresa al portal</p>
+            </div>
+
+            <div id="loginSection">
+                <form id="universalLoginForm" style="margin-top: 20px;" onsubmit="event.preventDefault(); alert('Modo Demo: No hay base de datos conectada.');">
+                    <div class="input-group">
+                        <span class="material-icons input-icon">person</span>
+                        <input type="text" id="loginUser" placeholder="Usuario / Email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="material-icons input-icon">lock</span>
+                        <input type="password" id="loginPass" placeholder="Contraseña" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary full-width">
+                        Iniciar Sesión
+                    </button>
+                </form>
+
+                <p class="auth-toggle-text">
+                    ¿No tienes cuenta?
+                    <span class="auth-toggle-link" onclick="toggleAuthMode('register')">
+                        Regístrate como Alumno
+                    </span>
+                </p>
+            </div>
+
+            <div id="registerSection" style="display:none;">
+                <form id="publicRegisterForm" style="margin-top: 20px;">
+                    <div class="input-group">
+                        <span class="material-icons input-icon">badge</span>
+                        <input type="text" id="regNombre" placeholder="Nombre Completo" required>
+                    </div>
+                    <div class="input-group">
+                        <span class="material-icons input-icon">email</span>
+                        <input type="email" id="regUser" placeholder="Correo" required>
+                    </div>
+                    <button type="button" class="btn-success full-width" onclick="alert('Registro deshabilitado en demo')">
+                        Crear Cuenta
+                    </button>
+                </form>
+
+                <p class="auth-toggle-text">
+                    ¿Ya tienes cuenta?
+                    <span class="auth-toggle-link" onclick="toggleAuthMode('login')">
+                        Inicia Sesión
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad Menú Móvil
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if(menuToggle){
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Funcionalidad Modal Login
+        function abrirLogin() {
+            document.getElementById('loginModal').style.display = 'block';
+            toggleAuthMode('login');
+        }
+
+        function toggleAuthMode(mode) {
+            const loginSec = document.getElementById('loginSection');
+            const regSec = document.getElementById('registerSection');
+            const title = document.getElementById('modalTitle');
+            
+            if (mode === 'register') {
+                loginSec.style.display = 'none';
+                regSec.style.display = 'block';
+                title.textContent = "Crear Cuenta";
+            } else {
+                loginSec.style.display = 'block';
+                regSec.style.display = 'none';
+                title.textContent = "Bienvenido";
+            }
+        }
+
+        // Cerrar modal al dar click fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Animación al hacer Scroll (Reveal)
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        // Disparar reveal al cargar por si hay elementos visibles
+        reveal();
+    </script>
 </body>
 </html>
