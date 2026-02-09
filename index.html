@@ -9,6 +9,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        /* Estilos específicos para las imágenes que faltaban */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('fondo.jpeg') no-repeat center center/cover;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .director-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,8 +90,7 @@
 
             <div class="image-content reveal">
                 <div class="director-frame">
-                    <div class="director-img"></div>
-                    <img src="fundadora.jpg" alt="Fundadora">
+                    <img src="directora.jpeg" alt="Mtra. Carmen Servin - Directora">
                     <div class="floating-badge">Fundadora</div>
                 </div>
             </div>
@@ -129,25 +150,10 @@
         </div>
 
         <div class="gallery-grid reveal">
-            <div class="gallery-item">
-                <img src="danza1.jpeg" alt="Danza 1">
-                <div class="gallery-overlay"></div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="danza2.jpeg" alt="Danza 2">
-                <div class="gallery-overlay"></div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="danza3.jpeg" alt="Danza 3">
-                <div class="gallery-overlay"></div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="danza4.jpeg" alt="Danza 4">
-                <div class="gallery-overlay"></div>
-            </div>
+            <div class="gallery-item"><img src="danza1.jpeg" alt="Danza 1"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="danza2.jpeg" alt="Danza 2"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="danza3.jpeg" alt="Danza 3"><div class="gallery-overlay"></div></div>
+            <div class="gallery-item"><img src="danza4.jpeg" alt="Danza 4"><div class="gallery-overlay"></div></div>
         </div>
     </section>
 
@@ -175,50 +181,11 @@
         </div>
     </section>
 
-    <section id="ubicacion" class="container section-padding">
-        <h2 class="text-center mb-2 reveal" style="font-size: 2.5rem;">
-            Ensaya con Nosotros
-        </h2>
-
-        <div class="grid-2" style="align-items: start;">
-            <div class="map-box reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.8681942994626!2d-100.4593488!3d20.6348925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3508aff8f5865%3A0xdc6e39f648bded6a!2sDelegaci%C3%B3n%20Felix%20Osores%20Sotomayor!5e1!3m2!1ses-419!2smx!4v1769979032191!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
-
-            <div class="schedule-box reveal">
-                <h3 style="color: var(--azul-talavera); display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
-                    <span class="material-icons">schedule</span>
-                    Horarios de Clase
-                </h3>
-
-                <ul class="schedule-list" style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                        <span class="group-name" style="display: block; font-weight: bold; color: var(--rosa-oscuro);">
-                            Principiantes
-                        </span>
-                        <span class="group-time" style="color: var(--text-light);">
-                            Sábado: 4:00 PM - 6:00 PM
-                        </span>
-                    </li>
-
-                    <li style="margin-bottom: 1.5rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                        <span class="group-name" style="display: block; font-weight: bold; color: var(--naranja-barro);">
-                            Compañia Titular 
-                        </span>
-                        <span class="group-time" style="color: var(--text-light);">
-                            Sábado: 5:30 PM - 9:00 PM
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <footer class="section-dark" style="padding: 4rem 0; text-align: center; margin-top: 4rem; border-top: 4px solid var(--amarillo-cempasuchil);">
         <div class="container">
             <h2 style="color: var(--amarillo-cempasuchil); margin-bottom: 1rem; letter-spacing: 2px;">
                 NAYAHUARI
             </h2>
-
             <p style="opacity: 0.8; font-size: 1.1rem; margin-bottom: 2rem;">
                 Orgullo, Tradición y Pasión.
             </p>
@@ -237,65 +204,6 @@
         </div>
     </footer>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="document.getElementById('loginModal').style.display='none'">×</span>
-
-            <div class="login-header">
-                <h2 style="color: var(--rosa-mexicano);" id="modalTitle">Bienvenido</h2>
-                <p>Ingresa al portal</p>
-            </div>
-
-            <div id="loginSection">
-                <form id="universalLoginForm" style="margin-top: 20px;" onsubmit="event.preventDefault(); alert('Modo Demo: No hay base de datos conectada.');">
-                    <div class="input-group">
-                        <span class="material-icons input-icon">person</span>
-                        <input type="text" id="loginUser" placeholder="Usuario / Email" required>
-                    </div>
-
-                    <div class="input-group">
-                        <span class="material-icons input-icon">lock</span>
-                        <input type="password" id="loginPass" placeholder="Contraseña" required>
-                    </div>
-
-                    <button type="submit" class="btn-primary full-width">
-                        Iniciar Sesión
-                    </button>
-                </form>
-
-                <p class="auth-toggle-text">
-                    ¿No tienes cuenta?
-                    <span class="auth-toggle-link" onclick="toggleAuthMode('register')">
-                        Regístrate como Alumno
-                    </span>
-                </p>
-            </div>
-
-            <div id="registerSection" style="display:none;">
-                <form id="publicRegisterForm" style="margin-top: 20px;">
-                    <div class="input-group">
-                        <span class="material-icons input-icon">badge</span>
-                        <input type="text" id="regNombre" placeholder="Nombre Completo" required>
-                    </div>
-                    <div class="input-group">
-                        <span class="material-icons input-icon">email</span>
-                        <input type="email" id="regUser" placeholder="Correo" required>
-                    </div>
-                    <button type="button" class="btn-success full-width" onclick="alert('Registro deshabilitado en demo')">
-                        Crear Cuenta
-                    </button>
-                </form>
-
-                <p class="auth-toggle-text">
-                    ¿Ya tienes cuenta?
-                    <span class="auth-toggle-link" onclick="toggleAuthMode('login')">
-                        Inicia Sesión
-                    </span>
-                </p>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Funcionalidad Menú Móvil
         const menuToggle = document.querySelector('.menu-toggle');
@@ -305,36 +213,6 @@
             menuToggle.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
-        }
-
-        // Funcionalidad Modal Login
-        function abrirLogin() {
-            document.getElementById('loginModal').style.display = 'block';
-            toggleAuthMode('login');
-        }
-
-        function toggleAuthMode(mode) {
-            const loginSec = document.getElementById('loginSection');
-            const regSec = document.getElementById('registerSection');
-            const title = document.getElementById('modalTitle');
-            
-            if (mode === 'register') {
-                loginSec.style.display = 'none';
-                regSec.style.display = 'block';
-                title.textContent = "Crear Cuenta";
-            } else {
-                loginSec.style.display = 'block';
-                regSec.style.display = 'none';
-                title.textContent = "Bienvenido";
-            }
-        }
-
-        // Cerrar modal al dar click fuera
-        window.onclick = function(event) {
-            const modal = document.getElementById('loginModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
         }
 
         // Animación al hacer Scroll (Reveal)
@@ -350,7 +228,6 @@
                 }
             }
         }
-        // Disparar reveal al cargar por si hay elementos visibles
         reveal();
     </script>
 </body>
