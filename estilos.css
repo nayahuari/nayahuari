@@ -1,4 +1,5 @@
 :root {
+    /* Paleta de colores */
     --rosa-mexicano: #E6007E;
     --rosa-oscuro: #B40062;
     --azul-talavera: #1338BE;
@@ -11,13 +12,20 @@
     --light-bg: #fffbf0;
     --text-main: #263238;
 
+    /* Tipografía */
     --font-heading: 'Segoe UI', sans-serif;
     --font-body: 'Segoe UI', sans-serif;
 
+    /* Transiciones */
     --transition-speed: 0.3s;
+    --border-radius: 10px;
+    --box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-* {
+/* Reset global */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -28,6 +36,7 @@ body {
     background: var(--light-bg);
     color: var(--text-main);
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 /* Zarape line */
@@ -41,6 +50,7 @@ body {
         var(--verde-agave),
         var(--naranja-barro)
     );
+    border-radius: 3px;
 }
 
 /* Navbar */
@@ -54,6 +64,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
 }
 
 .nav-links {
@@ -85,6 +97,7 @@ body {
     position: relative;
     height: 80vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -93,8 +106,7 @@ body {
 
 .hero-bg {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -104,20 +116,20 @@ body {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 6vw, 4rem);
     color: var(--amarillo-cempasuchil);
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
 .hero h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
     margin-bottom: 0.5rem;
     color: white;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     max-width: 600px;
     margin: 0 auto 1.5rem;
 }
@@ -130,12 +142,12 @@ body {
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    transition: all var(--transition-speed);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 /* Directora */
@@ -157,8 +169,13 @@ body {
     width: 300px;
     height: 400px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed);
+}
+
+.director-frame:hover {
+    transform: translateY(-5px) scale(1.03);
 }
 
 .director-img {
@@ -176,6 +193,7 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 0.85rem;
 }
 
 /* Timeline */
@@ -203,6 +221,7 @@ body {
     position: relative;
     width: 50%;
     padding: 1rem 2rem;
+    transition: all var(--transition-speed);
 }
 
 .timeline-item.left { left: 0; text-align: right; }
@@ -225,7 +244,7 @@ body {
 .timeline-content {
     background: white;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
@@ -240,8 +259,13 @@ body {
     width: 100%;
     height: 250px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.02);
 }
 
 .gallery-item img {
@@ -281,7 +305,7 @@ body {
     color: white;
     font-size: 1.5rem;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed);
 }
 
 .social-btn:hover {
@@ -296,7 +320,7 @@ body {
     .nav-links { flex-direction: column; gap: 15px; display: none; width: 100%; }
     .nav-links.active { display: flex; }
     .menu-toggle { display: block; }
-    .hero { height: 60vh; }
+    .hero { height: 60vh; padding: 0 1rem; }
     .director-frame { width: 100%; height: 300px; }
     .gallery-item { height: 200px; }
     .timeline-item.left, .timeline-item.right { width: 100%; text-align: left; left: 0 !important; }
