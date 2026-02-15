@@ -123,47 +123,65 @@ button { font-family: inherit; }
 
 .menu-toggle { display: none; }
 @media (max-width: 768px) {
-    /* Ajuste de Hero para que el texto no se desborde */
-    .hero { height: 70vh; min-height: 500px; }
-    .hero h1 { font-size: 2.8rem; }
-    .hero h3 { font-size: 1rem; letter-spacing: 2px; }
+    /* Hero: Ajuste flexible para evitar cortes de texto */
+    .hero { 
+        height: auto; 
+        min-height: 60vh; 
+        padding: 60px 20px; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+    }
+    .hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); line-height: 1.1; }
+    .hero h3 { font-size: 0.9rem; letter-spacing: 1px; }
 
-    /* Ajuste de la foto de la Directora */
-    .director-img { height: 350px; box-shadow: -10px 10px 0 var(--azul-noche); }
-    .floating-badge { right: 10px; bottom: 20px; padding: 8px 15px; font-size: 0.8rem; }
+    /* Foto Directora: Más natural en móviles */
+    .director-img { 
+        height: auto; 
+        aspect-ratio: 4/5; 
+        max-width: 100%; 
+        box-shadow: -8px 8px 0 var(--azul-noche); 
+    }
+    .floating-badge { right: 5%; bottom: 15px; transform: scale(0.9); }
 
-    /* Ajuste de Secciones */
-    .section-padding { padding: 3.5rem 0; }
-    
-    /* Dashboard: Convertir en vertical */
+    /* Dashboard: Scroll horizontal suave para el menú */
     .dashboard-layout { flex-direction: column; }
-    .sidebar { width: 100%; padding: 1rem; flex-direction: row; overflow-x: auto; gap: 10px; }
-    .menu-item { margin-bottom: 0; white-space: nowrap; font-size: 0.9rem; }
-    .main-content { padding: 2rem 1.5rem; }
+    .sidebar { 
+        width: 100%; 
+        padding: 0.8rem; 
+        display: flex;
+        flex-direction: row; 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        gap: 12px; 
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .menu-item { flex: 0 0 auto; margin: 0; padding: 8px 15px; }
 
-    /* Formularios responsivos */
-    .form-grid-responsive { flex-direction: column; align-items: stretch; gap: 15px; }
-    .form-group-item { flex: 1 1 auto; width: 100%; }
+    /* Formularios y Grillas: Control total de ancho */
+    .form-grid-responsive, .event-card { 
+        display: flex;
+        flex-direction: column; 
+        gap: 15px; 
+    }
+    .main-content { padding: 1.5rem 1rem; }
 
-    /* Modales */
-    .modal-content { width: 95%; margin: 5vh auto; padding: 1.5rem; }
-
-    /* Calendario y Eventos */
-    .event-card { flex-direction: column; text-align: center; padding: 20px; }
-    .event-card .date { width: 100%; margin-bottom: 10px; }
-
-    /* Galería */
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gallery-item { height: 280px; }
-
-    /* Redes Sociales */
-    .social-btn { width: 45px; height: 45px; font-size: 1.4rem; margin: 5px; }
+    /* Galería: 2 columnas en lugar de 1 para aprovechar el espacio */
+    .gallery-grid { 
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+        gap: 15px; 
+        padding: 0 10px;
+    }
 }
 
-/* Ajustes para celulares muy pequeños (iPhone SE, etc) */
+/* Optimización Extrema (Pantallas < 480px) */
 @media (max-width: 480px) {
-    .hero h1 { font-size: 2.2rem; }
-    .logo strong { font-size: 1.2rem; }
-    .logo span { font-size: 0.6rem; }
-    .btn-primary { width: 100%; padding: 12px 10px; }
+    .hero h1 { font-size: 1.8rem; }
+    .section-padding { padding: 2.5rem 1rem; }
+    
+    /* Botones amigables al pulgar */
+    .btn-primary, .social-btn { 
+        min-height: 48px; /* Tamaño mínimo recomendado para touch */
+    }
+    .social-btn { width: 40px; height: 40px; }
 }
