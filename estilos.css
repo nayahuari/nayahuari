@@ -349,41 +349,62 @@ img { max-width: 100%; display: block; }
 
 /* ===================================== */
 /* ✨ BOTÓN "FUNDADORA" (DISTINTIVO DE HONOR) */
+.image-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* El marco que envuelve la foto y el botón */
+.director-frame {
+    position: relative; /* ESTO ES CLAVE: Mantiene el botón dentro del marco */
+    display: inline-block;
+    padding: 15px;
+    z-index: 5;
+}
+
+.director-frame img {
+    width: 100%;
+    max-width: 400px; /* Ajusta según prefieras */
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    display: block;
+    transition: var(--transition-bounce);
+}
+
+/* EL BOTÓN RE-DISEÑADO */
 .floating-badge {
     position: absolute;
-    bottom: -15px;
-    right: -15px;
-    background: var(--gradiente-rosa); /* Base Rosa Mexicano */
+    bottom: 5px;   /* Ajusta para subir o bajar */
+    right: -10px;  /* Ajusta para mover a los lados */
+    background: var(--gradiente-rosa);
     color: white;
-    padding: 12px 30px;
-    border-radius: 50px 5px 50px 5px; /* Forma asimétrica elegante */
+    padding: 12px 25px;
+    border-radius: 50px 5px 50px 5px; /* Diseño asimétrico */
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    z-index: 10;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    z-index: 100; /* Asegura que esté por encima de la imagen */
     
-    /* Efecto de Relieve y Sombra */
-    box-shadow: 0 10px 25px rgba(230, 0, 126, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    
-    /* Animación de entrada y brillo */
+    /* Estética */
+    box-shadow: 0 10px 20px rgba(230, 0, 126, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     display: flex;
     align-items: center;
     gap: 8px;
     overflow: hidden;
-    transition: var(--transition-bounce);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Añadir un pequeño icono de estrella o destello antes del texto */
+/* Icono de estrella */
 .floating-badge::before {
     content: '★';
     color: var(--amarillo-cempasuchil);
-    font-size: 1.1rem;
-    animation: spin 3s linear infinite;
 }
 
-/* Efecto de Brillo Metálico que pasa constantemente */
+/* Efecto de Brillo */
 .floating-badge::after {
     content: '';
     position: absolute;
@@ -393,25 +414,18 @@ img { max-width: 100%; display: block; }
     height: 200%;
     background: rgba(255, 255, 255, 0.4);
     transform: rotate(30deg);
-    animation: shineBadge 4s infinite;
+    animation: shineBadge 3s infinite;
 }
 
-/* Interacción al pasar el mouse */
 .floating-badge:hover {
-    transform: scale(1.1) rotate(-2deg);
-    background: var(--gradiente-calido); /* Cambia a colores fuego al tocarlo */
-    box-shadow: 0 15px 35px rgba(230, 0, 126, 0.6);
-    border-color: white;
+    transform: scale(1.1) rotate(-3deg);
+    background: var(--gradiente-calido);
+    box-shadow: 0 15px 30px rgba(230, 0, 126, 0.6);
 }
 
-/* ANIMACIONES ESPECÍFICAS */
+/* Animación del brillo */
 @keyframes shineBadge {
     0% { left: -60%; }
     20% { left: 120%; }
     100% { left: 120%; }
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
