@@ -122,11 +122,12 @@ button { font-family: inherit; }
 .click-anim { animation: pulsacion 0.3s ease; } @keyframes pulsacion { 0% { transform: scale(0.9); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
 .menu-toggle { display: none; }
-/* ============================= */
-/* 📱 TABLETS Y MÓVILES GRANDES */
-/* ============================= */
+/* ===================================== */
+/* 📱 TABLETS Y MÓVILES (≤ 768px) */
+/* ===================================== */
 @media (max-width: 768px) {
 
+    /* -------- CONTENEDOR GENERAL -------- */
     .container {
         width: 94%;
         max-width: 600px;
@@ -135,7 +136,7 @@ button { font-family: inherit; }
     }
 
     section {
-        padding: 3rem 0; /* Más aire vertical */
+        padding: 3rem 0;
     }
 
     /* -------- DIRECTORA -------- */
@@ -159,7 +160,7 @@ button { font-family: inherit; }
 
     .director-img {
         width: 100%;
-        height: auto; /* Quitamos altura fija */
+        height: auto;
         border-radius: 12px;
     }
 
@@ -167,6 +168,7 @@ button { font-family: inherit; }
         width: 100%;
         order: 2;
         padding: 0;
+        text-align: left;
     }
 
     .director-info h2 {
@@ -177,53 +179,110 @@ button { font-family: inherit; }
 
     .director-info p {
         font-size: 1rem;
-        line-height: 1.7; /* MÁS LEGIBILIDAD */
+        line-height: 1.7;
     }
 
     /* -------- HISTORIA -------- */
 
+    .history-section {
+        padding: 3rem 0;
+    }
+
     .history-grid {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.5rem;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 1rem;
         position: relative;
-        padding-left: 1.5rem;
     }
 
+    /* Línea elegante lateral */
     .history-grid::before {
-        left: 6px;
+        content: '';
+        position: absolute;
+        left: 18px;
+        top: 0;
+        bottom: 0;
         width: 2px;
-        opacity: 0.2;
+        background: var(--dorado);
+        opacity: 0.15;
     }
 
     .history-item {
-        margin-left: 1rem;
-        padding: 1.5rem;
-        border-radius: 12px;
+        margin-left: 2.5rem;
+        padding: 1.8rem;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.05);
     }
 
     .history-item h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.15rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.3;
     }
 
-    /* -------- MENÚ -------- */
+    .history-item p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* -------- MENÚ SUPERIOR (SCROLL HORIZONTAL) -------- */
 
     .sidebar {
-        padding: 0.8rem 1rem;
+        display: flex;
+        overflow-x: auto;
+        gap: 0.8rem;
+        padding: 1rem;
+        white-space: nowrap;
+        border-bottom: 1px solid #eee;
+        background: var(--blanco);
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .sidebar::-webkit-scrollbar {
+        display: none; /* Chrome */
     }
 
     .menu-item {
-        padding: 12px 18px;
-        font-size: 0.95rem;
+        flex: 0 0 auto;
+        padding: 10px 18px;
         border-radius: 30px;
+        background: #f8f9fa;
+        font-size: 0.9rem;
+        border: 1px solid #eee;
+        transition: all 0.3s ease;
+    }
+
+    .menu-item:active {
+        background: var(--dorado);
+        color: #fff;
+    }
+
+    /* -------- BOTONES -------- */
+
+    .cta-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 30px;
+        text-align: center;
     }
 }
 
 
-/* ============================= */
-/* 📱 MÓVILES PEQUEÑOS (F6-like) */
-/* ============================= */
+/* ===================================== */
+/* 📱 MÓVILES PEQUEÑOS (≤ 480px) */
+/* ===================================== */
 @media (max-width: 480px) {
 
     .container {
@@ -252,21 +311,25 @@ button { font-family: inherit; }
     }
 
     .director-img {
-        height: auto; /* Nada de altura fija */
+        height: auto;
     }
 
-    .cta-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1.5rem;
+    .history-grid {
+        gap: 2rem;
+        padding: 0;
     }
 
-    .btn-primary {
-        width: 100%;
-        padding: 14px;
-        font-size: 1rem;
-        border-radius: 30px;
+    .history-item {
+        margin-left: 2rem;
+        padding: 1.5rem;
+    }
+
+    .history-item h3 {
+        font-size: 1.05rem;
+    }
+
+    .history-item p {
+        font-size: 0.95rem;
     }
 }
 
