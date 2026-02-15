@@ -123,9 +123,7 @@ button { font-family: inherit; }
 
 .menu-toggle { display: none; }
 /* ===================================== */
-/* 🔥 AJUSTES GENERALES ANTI-DESBORDE */
-/* ===================================== */
-
+/* 🔹 AJUSTES GENERALES */
 html, body {
     overflow-x: hidden;
 }
@@ -139,79 +137,85 @@ img, iframe {
     height: auto;
 }
 
-/* Ocultar botón hamburguesa en desktop */
-.menu-toggle {
-    display: none;
+/* ===================================== */
+/* 🔹 NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative;
+    background: var(--blanco);
+    z-index: 10;
 }
 
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--dark-bg);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--dorado);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
 
 /* ===================================== */
-/* 📱 RESPONSIVE TOTAL — TODO VERTICAL */
-/* ===================================== */
-
+/* 🔹 RESPONSIVE TOTAL — TODO VERTICAL */
 @media (max-width: 768px) {
 
-    /* ===== NAVBAR DESPLEGABLE ===== */
-
-    .navbar {
-        position: relative;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-    }
-
+    /* Menú desplegable */
     .menu-toggle {
         display: block;
-        cursor: pointer;
     }
 
     .nav-links {
-        position: absolute;
-        top: 100%;
+        display: none;
+        position: fixed;
+        top: 0;
         left: 0;
         width: 100%;
-        background: #fff;
-        display: none;
+        height: 100%;
+        background: rgba(255,255,255,0.98);
         flex-direction: column;
-        padding: 1.5rem 0;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 9999;
+        overflow-y: auto;
+        transition: all 0.3s ease;
     }
 
     .nav-links.active {
         display: flex;
     }
 
-    .nav-links li {
+    .nav-links li a {
+        font-size: 1.5rem;
+        padding: 1rem 0;
+        display: block;
         width: 100%;
         text-align: center;
+        color: var(--dark-bg);
     }
 
-    .nav-links a {
-        display: block;
-        padding: 14px 0;
-        width: 100%;
-        font-size: 1rem;
+    .nav-links li a:hover {
+        color: var(--dorado);
     }
 
-    /* ===== FORZAR TODO A UNA COLUMNA ===== */
-
-    .grid-2,
-    .director-wrapper {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 2.5rem !important;
-    }
-
-    .grid-2 > *,
-    .director-wrapper > * {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    /* ===== HERO ===== */
-
+    /* Hero vertical */
     .hero {
         min-height: 70vh;
         padding: 3rem 1.5rem;
@@ -228,7 +232,19 @@ img, iframe {
         line-height: 1.6;
     }
 
-    /* ===== DIRECTORA ===== */
+    /* Directora vertical */
+    .grid-2,
+    .director-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2.5rem !important;
+    }
+
+    .grid-2 > *,
+    .director-wrapper > * {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 
     .director-frame {
         max-width: 320px;
@@ -243,8 +259,7 @@ img, iframe {
         line-height: 1.8;
     }
 
-    /* ===== HISTORIA COMPLETAMENTE VERTICAL ===== */
-
+    /* Historia vertical */
     .timeline {
         display: flex !important;
         flex-direction: column !important;
@@ -275,48 +290,27 @@ img, iframe {
         box-shadow: 0 8px 25px rgba(0,0,0,0.05);
     }
 
-    .timeline-content h3 {
-        font-size: 1.1rem;
-    }
-
-    .timeline-content p {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-
-    /* ===== GALERÍA VERTICAL ===== */
-
+    /* Galería vertical */
     .gallery-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 1rem;
     }
 
-    .gallery-item {
-        width: 100%;
-    }
-
-    /* ===== AGENDA VERTICAL ===== */
-
+    /* Agenda vertical */
     .calendar-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 1.5rem;
     }
 
-    .event-card {
-        width: 100%;
-    }
-
-    /* ===== MAPA RESPONSIVO ===== */
-
+    /* Mapa responsive */
     iframe {
         width: 100% !important;
         height: 300px !important;
     }
 
-    /* ===== MÁS AIRE GENERAL ===== */
-
+    /* Más aire general */
     section {
         padding: 3rem 1rem;
     }
@@ -326,27 +320,20 @@ img, iframe {
     }
 }
 
-
 /* ===================================== */
-/* 📱 MÓVILES PEQUEÑOS (≤ 480px) */
-/* ===================================== */
-
+/* 🔹 MÓVILES PEQUEÑOS (≤480px) */
 @media (max-width: 480px) {
 
     .hero h1 {
         font-size: 1.6rem;
     }
 
-    .hero p {
+    .hero p,
+    .timeline-content p {
         font-size: 0.95rem;
     }
 
     .timeline-content h3 {
         font-size: 1rem;
     }
-
-    .timeline-content p {
-        font-size: 0.95rem;
-    }
-
 }
