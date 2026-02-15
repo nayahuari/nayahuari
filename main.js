@@ -11,6 +11,22 @@ menuToggle.addEventListener('click', () => {
     menuToggle.querySelector('span').textContent = navLinks.classList.contains('active') ? 'close' : 'menu';
 });
 
+// Cerrar menú al hacer click en un enlace
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('span').textContent = 'menu';
+        }
+    });
+});
+
 // --------------------
 // SCROLL REVEAL ANIMATIONS
 // --------------------
@@ -44,26 +60,7 @@ document.querySelectorAll('.social-btn').forEach(btn => {
 });
 
 // --------------------
-// SMOOTH SCROLL FOR NAV LINKS
-// --------------------
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        // cerrar menú en móvil
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuToggle.querySelector('span').textContent = 'menu';
-        }
-    });
-});
-
-// --------------------
-// OPTIONAL: FADE IN HERO TEXT ON LOAD
+// FADE IN HERO TEXT ON LOAD
 // --------------------
 window.addEventListener('load', () => {
     const heroContent = document.querySelector('.hero-content');
