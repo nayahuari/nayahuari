@@ -30,6 +30,7 @@ body { background-color: var(--light-bg); color: var(--text-main); line-height: 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
 button { font-family: inherit; }
+img, iframe { max-width: 100%; display: block; }
 
 /* ===================================== */
 /* 🌟 ZARAPE LINE */
@@ -53,17 +54,15 @@ button { font-family: inherit; }
 /* ===================================== */
 /* 🌟 NAVBAR */
 .navbar {
-    background: var(--glass);
-    color: white;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    background: var(--azul-noche);
+    color: white;
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .logo-container { display: flex; align-items: center; gap: 15px; }
@@ -73,7 +72,8 @@ button { font-family: inherit; }
 .logo span { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
 
 .nav-links { display: flex; gap: 20px; align-items: center; }
-.nav-links a:hover { color: var(--accent); }
+.nav-links a { color: white; font-weight: 500; padding: 0.5rem 0; transition: 0.3s; }
+.nav-links a:hover { color: var(--amarillo-cempasuchil); }
 
 .btn-login {
     background: transparent;
@@ -96,27 +96,24 @@ button { font-family: inherit; }
 /* 🌟 HERO */
 .hero {
     height: 90vh;
-    background: linear-gradient(to bottom, rgba(8,26,73,0.6), rgba(230,0,126,0.4)), url('img/fondo.jpeg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(to bottom, rgba(8,26,73,0.6), rgba(230,0,126,0.4)), url('img/fondo.jpeg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    position: relative;
 }
-.hero-content { z-index: 2; max-width: 800px; padding-top: 2rem; padding-left: 20px; padding-right: 20px; }
+.hero-content { z-index: 2; max-width: 800px; padding: 2rem 20px 0 20px; }
 .hero h3 { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); font-weight: 600; }
-.hero h1 { font-size: 5rem; margin-bottom: 1.5rem; line-height: 1; text-shadow: 2px 2px 0px var(--rosa-mexicano); }
-.btn-primary { background: var(--rosa-mexicano); color: white; padding: 12px 30px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px rgba(230,0,126,0.4); text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.hero h1 { font-size: 5rem; margin-bottom: 1.5rem; line-height: 1; text-shadow: 2px 2px 0 var(--rosa-mexicano); }
+.btn-primary { background: var(--rosa-mexicano); color: white; padding: 12px 30px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px rgba(230,0,126,0.4); text-transform: uppercase; letter-spacing: 1px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; }
 .btn-primary:hover { background: var(--azul-talavera); transform: translateY(-3px); }
 
 /* ===================================== */
 /* 🌟 DIRECTORA */
 .director-frame { position: relative; padding: 10px; border: 2px dashed var(--rosa-mexicano); border-radius: 20px; transform: rotate(2deg); transition: transform 0.3s; }
 .director-frame:hover { transform: rotate(0deg); }
-.director-img { height: 500px; width: 100%; border-radius: 15px; background-color: #e2e8f0; background-image: url('img/directora.jpeg'); background-size: cover; background-position: center; box-shadow: -15px 15px 0 var(--azul-noche); transform: rotate(-2deg); border: 4px solid white; }
+.director-img { height: 500px; width: 100%; border-radius: 15px; background: url('img/directora.jpeg') center/cover no-repeat #e2e8f0; box-shadow: -15px 15px 0 var(--azul-noche); transform: rotate(-2deg); border: 4px solid white; }
 .floating-badge { position: absolute; bottom: 40px; right: -20px; z-index: 10; background: var(--amarillo-cempasuchil); color: var(--azul-noche); padding: 12px 30px; border-radius: 12px; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,0,0,0.15); animation: float 4s ease-in-out infinite; }
 .director-quote { border-left: 4px solid var(--amarillo-cempasuchil); padding-left: 20px; margin-top: 2rem; font-style: italic; color: var(--text-main); font-size: 1.1rem; }
 .subtitle-badge { background: rgba(230,0,126,0.1); color: var(--rosa-mexicano); padding: 5px 15px; border-radius: 20px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
@@ -149,7 +146,8 @@ button { font-family: inherit; }
 .event-card .date { background: var(--amarillo-cempasuchil); color: var(--azul-noche); padding: 15px 10px; border-radius: 12px; text-align: center; min-width: 85px; font-weight: 800; }
 .date .day { display: block; font-size: 2rem; }
 
-.map-box { height: 450px; border-radius: var(--radius); overflow: hidden; border: 4px solid white; box-shadow: var(--shadow); }
+.map-box { width: 100%; height: 450px; border-radius: var(--radius); overflow: hidden; border: 4px solid white; box-shadow: var(--shadow); }
+.map-box iframe { width: 100%; height: 100%; }
 
 /* ===================================== */
 /* 🌟 RESPONSIVE TOTAL (MÓVILES HASTA 768px) */
@@ -160,7 +158,7 @@ button { font-family: inherit; }
         position: fixed;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: var(--light-bg);
+        background: var(--azul-noche);
         flex-direction: column;
         justify-content: center;
         align-items: center;
