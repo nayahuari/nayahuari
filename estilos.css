@@ -348,84 +348,110 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===================================== */
-/* ✨ BOTÓN "FUNDADORA" (DISTINTIVO DE HONOR) */
+/* ✨ DISEÑO SECCIÓN DIRECTORA & BOTÓN FUNDADORA */
+
 .image-content {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-/* El marco que envuelve la foto y el botón */
+/* El marco ahora se ajusta al tamaño de la imagen */
 .director-frame {
-    position: relative; /* ESTO ES CLAVE: Mantiene el botón dentro del marco */
-    display: inline-block;
-    padding: 15px;
+    position: relative; /* Fundamental para el posicionamiento del botón */
+    display: inline-flex; /* Se ajusta al ancho de la imagen */
+    padding: 0; 
     z-index: 5;
 }
 
 .director-frame img {
     width: 100%;
-    max-width: 400px; /* Ajusta según prefieras */
+    max-width: 380px; /* Tamaño ideal para retratos */
     height: auto;
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     display: block;
     transition: var(--transition-bounce);
+    /* Borde decorativo sutil */
+    border: 3px solid white;
 }
 
-/* EL BOTÓN RE-DISEÑADO */
+/* EL BOTÓN FUNDADORA RE-IMAGINADO */
 .floating-badge {
     position: absolute;
-    bottom: 5px;   /* Ajusta para subir o bajar */
-    right: -10px;  /* Ajusta para mover a los lados */
+    /* Posición ajustada para que resalte en la esquina inferior */
+    bottom: 20px;
+    right: -20px; 
+    
     background: var(--gradiente-rosa);
     color: white;
     padding: 12px 25px;
-    border-radius: 50px 5px 50px 5px; /* Diseño asimétrico */
+    /* Forma asimétrica tipo "pétalo" */
+    border-radius: 50px 5px 50px 5px; 
+    
     font-weight: 800;
     text-transform: uppercase;
     font-size: 0.85rem;
-    letter-spacing: 1.5px;
-    z-index: 100; /* Asegura que esté por encima de la imagen */
+    letter-spacing: 2px;
+    z-index: 100;
     
-    /* Estética */
-    box-shadow: 0 10px 20px rgba(230, 0, 126, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    /* Estética Premium */
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--amarillo-cempasuchil);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Icono de estrella */
+/* Estrella animada */
 .floating-badge::before {
     content: '★';
     color: var(--amarillo-cempasuchil);
+    font-size: 1.1rem;
 }
 
-/* Efecto de Brillo */
+/* Efecto de Brillo Metálico */
 .floating-badge::after {
     content: '';
     position: absolute;
     top: -50%;
-    left: -60%;
-    width: 20%;
+    left: -100%;
+    width: 30%;
     height: 200%;
-    background: rgba(255, 255, 255, 0.4);
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(255, 255, 255, 0.5), 
+        transparent
+    );
     transform: rotate(30deg);
-    animation: shineBadge 3s infinite;
+    animation: shineBadge 4s infinite;
 }
 
+/* Hover: El botón se activa */
 .floating-badge:hover {
     transform: scale(1.1) rotate(-3deg);
     background: var(--gradiente-calido);
-    box-shadow: 0 15px 30px rgba(230, 0, 126, 0.6);
+    box-shadow: 0 15px 30px rgba(230, 0, 126, 0.4);
+    cursor: default;
 }
 
-/* Animación del brillo */
+/* Animación de barrido de luz */
 @keyframes shineBadge {
-    0% { left: -60%; }
-    20% { left: 120%; }
-    100% { left: 120%; }
+    0% { left: -100%; }
+    20% { left: 150%; }
+    100% { left: 150%; }
+}
+
+/* Responsivo para móviles */
+@media (max-width: 480px) {
+    .floating-badge {
+        right: 0;
+        bottom: 10px;
+        font-size: 0.75rem;
+        padding: 8px 20px;
+    }
 }
