@@ -123,72 +123,117 @@ button { font-family: inherit; }
 
 .menu-toggle { display: none; }
 @media (max-width: 768px) {
-    /* --- SECCIÓN DIRECTORA: De lado a lado a vertical --- */
-    .director-section .container {
+    /* --- OPTIMIZACIÓN GLOBAL DE CONTENEDORES --- */
+    .container {
+        width: 92%; /* Mayor aprovechamiento del ancho sin tocar bordes */
+        padding: 0;
+    }
+
+    /* --- SECCIÓN DIRECTORA (ADIÓS AL TEXTO APRETADO) --- */
+    .director-section {
+        display: block; /* Rompe el layout de columnas */
+        padding: 2rem 0;
+    }
+
+    .director-wrapper { /* Si tienes un contenedor interno flex */
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center; /* Centramos el texto para mejor estética móvil */
+        gap: 2rem;
     }
 
     .director-img-container {
-        width: 100%;
-        max-width: 400px; /* Evita que la foto sea gigante */
-        margin-bottom: 2rem; /* Espacio para que no pegue con el texto */
+        width: 85%; /* No ocupa todo el ancho para no ser gigante */
+        margin: 0 auto; /* Centrada */
+        order: 1; /* La foto primero */
     }
 
     .director-info {
-        padding: 0 10px; /* Evita que el texto toque los bordes */
+        width: 100%;
+        order: 2; /* El texto después */
+        text-align: left; /* Lectura natural */
+        padding: 0 1rem;
     }
 
-    /* --- SECCIÓN HISTORIA (Timeline/Pasos): Espaciado --- */
-    .history-item, .step-card {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        border-left: 3px solid var(--dorado); /* Guía visual en lugar de cajas encerradas */
-        background: transparent; /* Quitar fondos pesados si existen */
+    .director-info h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--dorado);
+        display: inline-block;
     }
 
-    /* Ajuste general para que nada se vea apretado */
-    .section-padding {
-        padding: 4rem 1.5rem; /* Más aire arriba y abajo */
+    /* --- SECCIÓN HISTORIA (ESTILO TIMELINE MÓVIL) --- */
+    .history-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        position: relative;
     }
 
-    /* --- HERO REVISADO --- */
-    .hero { 
-        height: auto;
-        padding: 80px 20px;
-    }
-    .hero h1 { 
-        font-size: 2.2rem; 
-        word-wrap: break-word; /* Evita que palabras largas rompan el layout */
-    }
-
-    /* --- DASHBOARD / SIDEBAR --- */
-    .sidebar { 
-        position: sticky;
+    /* Creamos una línea estética que conecta la historia */
+    .history-grid::before {
+        content: '';
+        position: absolute;
+        left: 10px;
         top: 0;
-        z-index: 100;
-        background: white;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        bottom: 0;
+        width: 2px;
+        background: var(--dorado);
+        opacity: 0.3;
+    }
+
+    .history-item {
+        margin-left: 30px; /* Separación de la línea */
+        padding: 1.5rem !important;
+        width: calc(100% - 30px) !important; /* Forzar ancho completo */
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    /* --- DASHBOARD / MENÚ SUPERIOR --- */
+    .sidebar {
+        padding: 0.5rem;
+        background: var(--blanco);
+        border-bottom: 2px solid var(--dorado);
+    }
+    
+    .menu-item {
+        padding: 10px 20px;
+        background: #f8f9fa;
+        border-radius: 20px; /* Estilo de burbuja para tocar fácil */
+        border: 1px solid #eee;
     }
 }
 
-/* Optimización para pantallas muy angostas */
+/* --- AJUSTES FINOS PARA PANTALLAS PEQUEÑAS (iPhone/Android) --- */
 @media (max-width: 480px) {
-    .director-img {
-        box-shadow: none; /* Quitamos sombras pesadas que roban espacio visual */
-        border: 4px solid var(--azul-noche);
+    .hero h1 { 
+        font-size: 1.9rem; 
+        padding: 0 10px;
     }
 
-    .main-content {
-        padding: 1rem 0.8rem;
-    }
-
-    /* Ajuste de fuentes para que no "empujen" los contenedores */
-    p, span {
+    /* Evitar que los párrafos se vean como bloques infinitos */
+    p {
         font-size: 0.95rem;
-        line-height: 1.6;
+        line-height: 1.5;
+        margin-bottom: 1.2rem;
+    }
+
+    .director-img {
+        height: 300px; /* Reducimos altura para no hacer scroll infinito */
+    }
+
+    /* Botones de acción en modo "Full Width" para el pulgar */
+    .cta-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-primary {
+        text-align: center;
+        width: 100%;
     }
 }
+
 
