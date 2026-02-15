@@ -1,6 +1,7 @@
 /* ===================================== */
-/* 🌈 VARIABLES Y SISTEMA DE COLOR */
+/* 🌈 VARIABLES Y SISTEMA DE DISEÑO */
 :root {
+    /* Paleta Original */
     --rosa-mexicano: #E6007E;
     --rosa-oscuro: #B40062;
     --azul-talavera: #1338BE;
@@ -8,236 +9,313 @@
     --amarillo-cempasuchil: #FFD700;
     --naranja-barro: #E65100;
     --verde-agave: #00695C;
-    --verde-claro: #10b981;
     
-    --bg-light: #FFFBFA;
-    --white: #ffffff;
-    --text-main: #1A202C;
+    /* Nuevos Gradientes para "Más Diseño" */
+    --gradiente-rosa: linear-gradient(135deg, var(--rosa-mexicano), var(--rosa-oscuro));
+    --gradiente-azul: linear-gradient(135deg, var(--azul-talavera), var(--azul-noche));
+    --gradiente-calido: linear-gradient(135deg, var(--amarillo-cempasuchil), var(--naranja-barro));
+    --gradiente-zarape: linear-gradient(90deg, var(--rosa-mexicano), var(--azul-talavera), var(--amarillo-cempasuchil), var(--verde-agave), var(--naranja-barro));
     
-    --shadow-premium: 0 20px 40px rgba(0,0,0,0.1);
-    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Fondos y Textos */
+    --bg-body: #f8f9fa; /* Un gris muy claro para romper el blanco puro */
+    --bg-white: #ffffff;
+    --text-main: #2D3748;
+    --text-light: #718096;
+
+    /* Efectos */
+    --shadow-vibrante: 0 10px 30px -5px rgba(230, 0, 126, 0.3), 0 5px 15px -5px rgba(19, 56, 190, 0.2); /* Sombra doble */
+    --shadow-suave: 0 20px 40px rgba(0,0,0,0.08);
+    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto rebote */
+    --radius-card: 24px;
 }
 
-/* RESET Y BASE */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', 'Segoe UI', sans-serif; }
-html { scroll-behavior: smooth; }
-body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
+/* RESET MEJORADO */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { 
+    background-color: var(--bg-body); 
+    color: var(--text-main); 
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif; /* Sugerencia de fuente más moderna */
+    line-height: 1.7; 
+    overflow-x: hidden;
+}
+a { text-decoration: none; transition: var(--transition-bounce); }
+ul { list-style: none; }
 
 /* ===================================== */
-/* 🌟 COMPONENTES DE DECORACIÓN */
+/* 🌟 ELEMENTOS GLOBALES DECORATIVOS */
 .zarape-line {
-    height: 10px;
-    background: linear-gradient(90deg, 
-        var(--rosa-mexicano) 0% 20%, 
-        var(--azul-talavera) 20% 40%, 
-        var(--amarillo-cempasuchil) 40% 60%, 
-        var(--verde-agave) 60% 80%, 
-        var(--naranja-barro) 80% 100%);
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 2001;
+    height: 8px;
+    background: var(--gradiente-zarape);
+    position: fixed; top: 0; width: 100%; z-index: 2000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.section-padding { padding: 100px 5%; }
-.container { max-width: 1200px; margin: 0 auto; }
+.section-padding { padding: 120px 5%; }
+.container { max-width: 1280px; margin: 0 auto; }
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Tipografía responsiva */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Subrayado decorativo para títulos */
+.section-title::after {
+    content: ''; display: block; width: 60%; height: 6px;
+    background: var(--gradiente-zarape);
+    margin: 15px auto 0; border-radius: 10px;
+}
 
 /* ===================================== */
-/* 🌟 BOTONES PRO (Vitaminados) */
+/* 🌟 NAVBAR PREMIUM (Estilo Flotante) */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(8, 26, 73, 0.95); /* Azul noche translúcido */
+    backdrop-filter: blur(15px); /* Efecto cristal */
+    position: sticky; top: 15px; z-index: 1000;
+    width: 95%; margin: 15px auto 0; /* Barra flotante */
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-vibrante);
+}
+
+.logo-text strong { color: var(--amarillo-cempasuchil); font-size: 1.3rem; letter-spacing: 1px; text-transform: uppercase; }
+.logo-text span { color: white; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.8; }
+
+.nav-links { display: flex; gap: 15px; }
+.nav-links a { 
+    color: white; font-weight: 600; font-size: 0.9rem; 
+    padding: 10px 18px; border-radius: 30px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+.nav-links a:hover { 
+    background: rgba(255,255,255,0.15); color: var(--amarillo-cempasuchil);
+    transform: translateY(-2px);
+}
+
+/* ===================================== */
+/* 🌟 BOTONES REVOLUCIONADOS */
+
+/* Botón Principal (Hero y llamadas a la acción) */
 .btn-primary {
     position: relative;
-    background: linear-gradient(135deg, var(--rosa-mexicano), var(--rosa-oscuro));
-    color: white !important;
-    padding: 18px 40px;
-    border-radius: 50px;
+    padding: 18px 45px;
+    background: var(--gradiente-rosa);
+    color: white;
+    border: none;
+    border-radius: 100px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    border: none;
-    box-shadow: 0 10px 30px rgba(230, 0, 126, 0.4);
-    transition: var(--transition);
-    overflow: hidden;
+    letter-spacing: 1.5px;
+    overflow: hidden; /* Necesario para el efecto de brillo */
+    box-shadow: 0 15px 30px -10px rgba(230, 0, 126, 0.5);
+    transition: var(--transition-bounce);
     z-index: 1;
 }
 
+/* Efecto de "Brillo que pasa" */
 .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
+    content: ''; position: absolute; top: 0; left: -100%;
     width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: 0.5s;
-    z-index: -1;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.6s ease-in-out; z-index: -1;
 }
 
 .btn-primary:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(230, 0, 126, 0.6);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 40px -10px rgba(230, 0, 126, 0.7);
+    background: linear-gradient(135deg, var(--rosa-oscuro), var(--rosa-mexicano)); /* Invierte gradiente sutilmente */
 }
-
 .btn-primary:hover::before { left: 100%; }
 
 /* ===================================== */
-/* 🌟 NAVBAR (Estilo Premium) */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    background: rgba(8, 26, 73, 0.98);
-    position: sticky;
-    top: 10px;
-    z-index: 1000;
-    box-shadow: var(--shadow-premium);
-    margin: 10px 20px;
-    border-radius: 100px;
-}
+/* 🌟 SECCIONES DESARROLLADAS */
 
-.logo-text strong { color: var(--amarillo-cempasuchil); font-size: 1.4rem; letter-spacing: 1px; }
-.logo-text span { color: white; font-size: 0.7rem; letter-spacing: 3px; display: block; opacity: 0.8; }
-
-.nav-links { display: flex; gap: 25px; }
-.nav-links a { 
-    color: white; 
-    font-size: 0.9rem; 
-    font-weight: 600; 
-    text-transform: uppercase;
-    position: relative;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0; height: 2px;
-    bottom: -5px; left: 0;
-    background: var(--rosa-mexicano);
-    transition: 0.3s;
-}
-
-.nav-links a:hover::after { width: 100%; }
-
-/* ===================================== */
-/* 🌟 SECCIONES POR COLOR */
-
-/* Hero: Impacto total */
+/* HERO: Más dramático */
 .hero {
-    height: 90vh;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    /* Superposición con color para dar más intención que solo gris */
+    background: linear-gradient(135deg, rgba(8, 26, 73, 0.85), rgba(230, 0, 126, 0.4)), 
+                url('fondo.jpeg') center/cover no-repeat fixed;
+    min-height: 90vh;
 }
-.hero h1 { font-size: 6rem; font-weight: 900; letter-spacing: -2px; }
-.hero h3 { color: var(--amarillo-cempasuchil); letter-spacing: 5px; margin-bottom: 10px; }
-
-/* Directora: Elegancia Blanca/Rosa */
-#directora { background: white; }
-.subtitle-badge { 
-    background: rgba(230, 0, 126, 0.1); 
-    color: var(--rosa-mexicano); 
-    padding: 8px 20px; 
-    border-radius: 50px; 
-    font-weight: 700;
-    font-size: 0.8rem;
+.hero h1 { 
+    font-size: clamp(3.5rem, 8vw, 6rem); 
+    font-weight: 900; 
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    line-height: 1; margin-bottom: 1.5rem;
 }
+.hero h3 { color: var(--amarillo-cempasuchil); letter-spacing: 3px; font-weight: 600; margin-bottom: 10px; }
 
+/* DIRECTORA: Marco complejo y elegante */
 .director-frame {
     position: relative;
-    padding: 15px;
+    padding: 20px;
+    /* Marco de doble línea con colores */
+    background: linear-gradient(white, white) padding-box,
+                var(--gradiente-zarape) border-box;
+    border: 5px solid transparent;
+    border-radius: 30px;
+    transition: var(--transition-bounce);
 }
 
 .director-frame img {
-    border: 10px solid white;
-    box-shadow: 20px 20px 0 var(--azul-noche);
-    transition: var(--transition);
+    border-radius: 25px;
+    box-shadow: 25px 25px 0 var(--azul-noche); /* Sombra sólida desplazada */
+    transform: rotate(-2deg); transition: var(--transition-bounce);
+}
+.director-frame:hover img { transform: rotate(0deg) scale(1.02); box-shadow: 35px 35px 0 var(--rosa-mexicano); }
+
+.floating-badge {
+    background: var(--gradiente-rosa);
+    font-size: 1.1rem; padding: 15px 35px;
+    box-shadow: var(--shadow-vibrante);
+    bottom: -25px; right: -10px;
 }
 
-.director-frame:hover img { transform: translate(-10px, -10px); box-shadow: 30px 30px 0 var(--rosa-mexicano); }
+/* HISTORIA/TIMELINE: Más visual */
+.section-gray { background: #f0f4f8; position: relative; }
+/* Fondo sutil de patrones (opcional) */
+.section-gray::before { 
+    content: ''; position: absolute; top:0; left:0; width:100%; height:100%; opacity: 0.05;
+    background-image: radial-gradient(var(--azul-talavera) 1px, transparent 1px); background-size: 20px 20px;
+}
 
-/* Historia: Contraste Gris/Azul */
-.section-gray { background: #f4f7f6; position: relative; }
-.timeline::after { background: var(--azul-talavera); opacity: 0.2; }
+.timeline::after { background: var(--gradiente-azul); width: 4px; opacity: 0.3; }
 .timeline-icon {
-    background: var(--white);
-    color: var(--rosa-mexicano);
-    box-shadow: 0 0 0 8px rgba(230, 0, 126, 0.1);
+    background: var(--gradiente-rosa); color: white; border: none;
+    width: 60px; height: 60px; font-size: 1.5rem;
+    box-shadow: 0 0 0 8px rgba(230, 0, 126, 0.15);
 }
 .timeline-content {
-    border-top: 6px solid var(--azul-talavera);
-    padding: 40px;
+    border-radius: var(--radius-card); padding: 35px; border: none;
+    /* Borde superior de color usando gradiente */
+    background: linear-gradient(white, white) padding-box,
+                var(--gradiente-calido) border-box;
+    border-top: 5px solid transparent;
+    box-shadow: var(--shadow-suave);
 }
+.timeline-content:hover { transform: translateY(-8px); box-shadow: var(--shadow-vibrante); }
+.year-badge { color: var(--naranja-barro); font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 5px; }
 
-/* Galería: Vibrante */
-.gallery-grid { gap: 15px; }
+/* GALERÍA: Interactiva */
 .gallery-item {
-    border-radius: 20px;
-    height: 300px;
-    border: 4px solid transparent;
-    transition: var(--transition);
+    border-radius: var(--radius-card); overflow: hidden; height: 350px;
+    box-shadow: var(--shadow-suave);
+    border-bottom: 5px solid transparent; transition: all 0.5s ease;
 }
-.gallery-item:hover { border-color: var(--amarillo-cempasuchil); transform: scale(1.02); }
+.gallery-item:hover {
+    border-bottom-color: var(--amarillo-cempasuchil);
+    transform: scale(1.03);
+    box-shadow: var(--shadow-vibrante);
+}
+.gallery-overlay { background: linear-gradient(to top, rgba(8, 26, 73, 0.9), transparent); }
 
-/* Agenda: Nocturno Profundo */
+/* AGENDA: Nocturna y vibrante */
 .section-dark { 
-    background: linear-gradient(135deg, var(--azul-noche), #040d25); 
-    color: white;
+    background: linear-gradient(150deg, var(--azul-noche) 0%, #0a1128 100%);
+    color: white; position: relative; overflow: hidden;
 }
+/* Círculos decorativos de fondo */
+.section-dark::before, .section-dark::after {
+    content: ''; position: absolute; border-radius: 50%; filter: blur(80px); z-index: 0;
+}
+.section-dark::before { background: var(--rosa-mexicano); width: 400px; height: 400px; top: -100px; right: -100px; opacity: 0.2; }
+.section-dark::after { background: var(--azul-talavera); width: 300px; height: 300px; bottom: -50px; left: -50px; opacity: 0.15; }
+
 .event-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.07); /* Glassmorphism */
     backdrop-filter: blur(10px);
-    padding: 30px;
-    border-left: 5px solid var(--amarillo-cempasuchil);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 30px; border-radius: var(--radius-card);
+    border-left: none; overflow: hidden; position: relative;
 }
-.event-card .date {
-    background: var(--rosa-mexicano);
-    color: white;
-    border-radius: 15px;
+/* Barra lateral de color animada */
+.event-card::before {
+    content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 6px;
+    background: var(--gradiente-calido); transition: 0.3s;
 }
+.event-card:hover::before { width: 12px; }
+.event-card:hover { background: rgba(255,255,255,0.12); transform: translateX(10px); }
 
-/* Ubicación: Enfoque Agave/Luz */
-#ubicacion { background: #fffbf0; }
-.map-box {
-    border: 8px solid white;
-    border-radius: 30px;
-    box-shadow: var(--shadow-premium);
+.date { 
+    background: var(--gradiente-rosa); padding: 15px 20px; border-radius: 18px;
+    box-shadow: 0 10px 20px -5px rgba(230, 0, 126, 0.5);
 }
-.schedule-box {
-    background: white;
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: var(--shadow-premium);
+.date .day { font-size: 2.2rem; line-height: 1; }
+
+/* UBICACIÓN */
+.map-box, .schedule-box {
+    border-radius: 30px; overflow: hidden;
+    box-shadow: var(--shadow-suave); background: var(--bg-white);
 }
+.map-box iframe { height: 500px; }
+.schedule-box { padding: 50px; border-top: 5px solid var(--verde-agave); }
+.group-name { font-size: 1.2rem; margin-bottom: 5px; }
 
 /* ===================================== */
-/* 🌟 SOCIAL MEDIA BUTTONS */
+/* 🌟 FOOTER Y REDES SOCIALES MEJORADOS */
+footer.section-dark {
+    margin-top: 0; /* Eliminar margen si usamos section-dark */
+    padding-top: 8rem; padding-bottom: 3rem;
+    /* Borde superior de arcoíris */
+    border-top: none;
+    background-image: linear-gradient(to right, var(--rosa-mexicano), var(--azul-talavera), var(--amarillo-cempasuchil), var(--verde-agave), var(--naranja-barro));
+    background-size: 100% 6px; background-repeat: no-repeat; background-position: top;
+}
+
+/* BOTONES DE REDES SOCIALES */
+.social-links { gap: 20px; }
+
 .social-btn {
-    width: 60px; height: 60px;
-    border-radius: 50%;
+    width: 65px; height: 65px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    transition: var(--transition);
+    font-size: 1.8rem; color: white;
+    border-radius: 50%;
+    /* Estado inicial: Colores de la marca (Azul Talavera) */
+    background: var(--gradiente-azul);
+    box-shadow: 0 5px 15px rgba(19, 56, 190, 0.3);
+    position: relative; overflow: hidden; z-index: 1;
+    transition: var(--transition-bounce);
 }
-.facebook { background: #1877F2; }
-.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-.tiktok { background: #000000; }
-.youtube { background: #FF0000; }
 
-.social-btn:hover { transform: rotate(360deg) scale(1.2); filter: brightness(1.2); }
+/* Efecto de llenado al pasar el mouse con los colores reales de cada red */
+.social-btn::before {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 0%;
+    transition: 0.4s ease-in-out; z-index: -1; border-radius: 50%;
+}
+
+.social-btn:hover { transform: translateY(-10px) rotate(360deg); font-size: 2rem; }
+.social-btn:hover::before { height: 100%; }
+
+/* Colores específicos al hacer hover */
+.facebook:hover::before { background: #1877F2; }
+.instagram:hover::before { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.tiktok:hover::before { background: #000000; }
+.youtube:hover::before { background: #FF0000; }
 
 /* ===================================== */
-/* 🌟 ANIMACIONES REVEAL */
-.reveal { opacity: 0; transform: translateY(50px); transition: 1s all ease; }
-.reveal.active { opacity: 1; transform: translateY(0); }
-
-/* ===================================== */
-/* 📱 RESPONSIVE */
+/* 📱 RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
-    .navbar { top: 0; margin: 0; border-radius: 0; }
-    .hero h1 { font-size: 3rem; }
-    .grid-2 { grid-template-columns: 1fr !important; }
-    .timeline::after { left: 20px; }
-    .timeline-item { width: 100% !important; padding-left: 60px; text-align: left !important; }
-    .timeline-icon { left: -5px !important; }
+    .navbar { width: 100%; top: 0; margin: 0; border-radius: 0; padding: 1rem; }
+    .section-title { font-size: 2rem; }
+    .section-title::after { width: 80%; }
+    
+    .director-wrapper { flex-direction: column; gap: 50px; }
+    .director-frame img { transform: rotate(0); box-shadow: 15px 15px 0 var(--azul-noche); }
+    .director-frame:hover img { box-shadow: 15px 15px 0 var(--rosa-mexicano); }
+    
+    .timeline::after { left: 30px; }
+    .timeline-icon { width: 50px; height: 50px; left: 5px !important; right: auto !important; font-size: 1.2rem; }
+    .timeline-content { margin-left: 70px !important; width: auto !important; padding: 25px; }
+    .timeline-item.left, .timeline-item.right { text-align: left !important; }
+    
+    .event-card:hover { transform: translateX(5px); }
+    .social-btn { width: 55px; height: 55px; font-size: 1.5rem; }
 }
