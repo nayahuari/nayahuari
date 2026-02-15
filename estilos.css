@@ -122,118 +122,153 @@ button { font-family: inherit; }
 .click-anim { animation: pulsacion 0.3s ease; } @keyframes pulsacion { 0% { transform: scale(0.9); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
 .menu-toggle { display: none; }
+/* ============================= */
+/* 📱 TABLETS Y MÓVILES GRANDES */
+/* ============================= */
 @media (max-width: 768px) {
-    /* --- OPTIMIZACIÓN GLOBAL DE CONTENEDORES --- */
+
     .container {
-        width: 92%; /* Mayor aprovechamiento del ancho sin tocar bordes */
-        padding: 0;
+        width: 94%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 1rem;
     }
 
-    /* --- SECCIÓN DIRECTORA (ADIÓS AL TEXTO APRETADO) --- */
+    section {
+        padding: 3rem 0; /* Más aire vertical */
+    }
+
+    /* -------- DIRECTORA -------- */
+
     .director-section {
-        display: block; /* Rompe el layout de columnas */
-        padding: 2rem 0;
+        padding: 3rem 0;
     }
 
-    .director-wrapper { /* Si tienes un contenedor interno flex */
+    .director-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.5rem;
     }
 
     .director-img-container {
-        width: 85%; /* No ocupa todo el ancho para no ser gigante */
-        margin: 0 auto; /* Centrada */
-        order: 1; /* La foto primero */
+        width: 80%;
+        max-width: 320px;
+        margin: 0 auto;
+        order: 1;
+    }
+
+    .director-img {
+        width: 100%;
+        height: auto; /* Quitamos altura fija */
+        border-radius: 12px;
     }
 
     .director-info {
         width: 100%;
-        order: 2; /* El texto después */
-        text-align: left; /* Lectura natural */
-        padding: 0 1rem;
+        order: 2;
+        padding: 0;
     }
 
     .director-info h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-        border-bottom: 2px solid var(--dorado);
-        display: inline-block;
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.3;
     }
 
-    /* --- SECCIÓN HISTORIA (ESTILO TIMELINE MÓVIL) --- */
+    .director-info p {
+        font-size: 1rem;
+        line-height: 1.7; /* MÁS LEGIBILIDAD */
+    }
+
+    /* -------- HISTORIA -------- */
+
     .history-grid {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 2rem;
         position: relative;
+        padding-left: 1.5rem;
     }
 
-    /* Creamos una línea estética que conecta la historia */
     .history-grid::before {
-        content: '';
-        position: absolute;
-        left: 10px;
-        top: 0;
-        bottom: 0;
+        left: 6px;
         width: 2px;
-        background: var(--dorado);
-        opacity: 0.3;
+        opacity: 0.2;
     }
 
     .history-item {
-        margin-left: 30px; /* Separación de la línea */
-        padding: 1.5rem !important;
-        width: calc(100% - 30px) !important; /* Forzar ancho completo */
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        margin-left: 1rem;
+        padding: 1.5rem;
+        border-radius: 12px;
     }
 
-    /* --- DASHBOARD / MENÚ SUPERIOR --- */
-    .sidebar {
-        padding: 0.5rem;
-        background: var(--blanco);
-        border-bottom: 2px solid var(--dorado);
+    .history-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
     }
-    
+
+    /* -------- MENÚ -------- */
+
+    .sidebar {
+        padding: 0.8rem 1rem;
+    }
+
     .menu-item {
-        padding: 10px 20px;
-        background: #f8f9fa;
-        border-radius: 20px; /* Estilo de burbuja para tocar fácil */
-        border: 1px solid #eee;
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        border-radius: 30px;
     }
 }
 
-/* --- AJUSTES FINOS PARA PANTALLAS PEQUEÑAS (iPhone/Android) --- */
+
+/* ============================= */
+/* 📱 MÓVILES PEQUEÑOS (F6-like) */
+/* ============================= */
 @media (max-width: 480px) {
-    .hero h1 { 
-        font-size: 1.9rem; 
-        padding: 0 10px;
+
+    .container {
+        width: 95%;
+        padding: 0 1rem;
     }
 
-    /* Evitar que los párrafos se vean como bloques infinitos */
+    section {
+        padding: 2.5rem 0;
+    }
+
+    .hero h1 { 
+        font-size: 1.6rem;
+        line-height: 1.3;
+        padding: 0;
+    }
+
     p {
         font-size: 0.95rem;
-        line-height: 1.5;
-        margin-bottom: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 1.3rem;
+    }
+
+    .director-img-container {
+        width: 85%;
     }
 
     .director-img {
-        height: 300px; /* Reducimos altura para no hacer scroll infinito */
+        height: auto; /* Nada de altura fija */
     }
 
-    /* Botones de acción en modo "Full Width" para el pulgar */
     .cta-container {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        gap: 1rem;
+        margin-top: 1.5rem;
     }
 
     .btn-primary {
-        text-align: center;
         width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 30px;
     }
 }
+
 
 
