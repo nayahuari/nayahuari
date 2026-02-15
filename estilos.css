@@ -489,3 +489,39 @@ img { max-width: 100%; display: block; }
         font-size: 0.75rem;
     }
 }
+/* ===================================== */
+/* 📱 AJUSTE ESPECIAL PARA MÓVIL (FUNDADORA) */
+/* ===================================== */
+
+@media (max-width: 480px) {
+    /* Centramos un poco más la imagen para que el botón tenga espacio */
+    .image-content {
+        padding: 40px 10px; 
+    }
+
+    .director-frame img {
+        max-width: 280px; /* Un poco más pequeña para que quepa todo el conjunto */
+        border-width: 3px;
+    }
+
+    .floating-badge {
+        /* Lo movemos a una posición más segura en pantallas pequeñas */
+        right: 50%;
+        transform: translateX(50%); /* Lo centra horizontalmente respecto a la foto */
+        bottom: -15px; /* Lo bajamos para que no tape la imagen */
+        
+        /* Ajustamos el tamaño del texto y espacio */
+        padding: 8px 18px !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 1px !important;
+        
+        /* Evitamos que el botón se mueva bruscamente */
+        width: auto;
+        justify-content: center;
+    }
+
+    /* Ajuste del hover en móvil (opcional, para que no se quede pegado el efecto) */
+    .floating-badge:hover {
+        transform: translateX(50%) scale(1.05);
+    }
+}
