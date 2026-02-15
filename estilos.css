@@ -346,3 +346,72 @@ img { max-width: 100%; display: block; }
 .reveal.active {
     opacity: 1; transform: translateY(0);
 }
+
+/* ===================================== */
+/* ✨ BOTÓN "FUNDADORA" (DISTINTIVO DE HONOR) */
+.floating-badge {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background: var(--gradiente-rosa); /* Base Rosa Mexicano */
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px 5px 50px 5px; /* Forma asimétrica elegante */
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    z-index: 10;
+    
+    /* Efecto de Relieve y Sombra */
+    box-shadow: 0 10px 25px rgba(230, 0, 126, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    
+    /* Animación de entrada y brillo */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+    transition: var(--transition-bounce);
+}
+
+/* Añadir un pequeño icono de estrella o destello antes del texto */
+.floating-badge::before {
+    content: '★';
+    color: var(--amarillo-cempasuchil);
+    font-size: 1.1rem;
+    animation: spin 3s linear infinite;
+}
+
+/* Efecto de Brillo Metálico que pasa constantemente */
+.floating-badge::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    animation: shineBadge 4s infinite;
+}
+
+/* Interacción al pasar el mouse */
+.floating-badge:hover {
+    transform: scale(1.1) rotate(-2deg);
+    background: var(--gradiente-calido); /* Cambia a colores fuego al tocarlo */
+    box-shadow: 0 15px 35px rgba(230, 0, 126, 0.6);
+    border-color: white;
+}
+
+/* ANIMACIONES ESPECÍFICAS */
+@keyframes shineBadge {
+    0% { left: -60%; }
+    20% { left: 120%; }
+    100% { left: 120%; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
