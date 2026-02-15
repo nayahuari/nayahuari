@@ -25,6 +25,7 @@
     --radius: 16px;
 }
 
+/* RESET GLOBAL */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 body { background-color: var(--light-bg); color: var(--text-main); line-height: 1.6; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -48,6 +49,7 @@ img, iframe { max-width: 100%; display: block; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 .animate-fade { animation: fadeIn 1s ease-out forwards; }
 .animate-slide { animation: slideUp 0.8s ease-out forwards; }
+
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -106,7 +108,23 @@ img, iframe { max-width: 100%; display: block; }
 .hero-content { z-index: 2; max-width: 800px; padding: 2rem 20px 0 20px; }
 .hero h3 { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; color: var(--accent); font-weight: 600; }
 .hero h1 { font-size: 5rem; margin-bottom: 1.5rem; line-height: 1; text-shadow: 2px 2px 0 var(--rosa-mexicano); }
-.btn-primary { background: var(--rosa-mexicano); color: white; padding: 12px 30px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px rgba(230,0,126,0.4); text-transform: uppercase; letter-spacing: 1px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; }
+.btn-primary { 
+    background: var(--rosa-mexicano); 
+    color: white; 
+    padding: 12px 30px; 
+    border-radius: 50px; 
+    border: none; 
+    font-weight: 700; 
+    cursor: pointer; 
+    box-shadow: 0 10px 20px rgba(230,0,126,0.4); 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+    transition: all 0.3s; 
+}
 .btn-primary:hover { background: var(--azul-talavera); transform: translateY(-3px); }
 
 /* ===================================== */
@@ -146,11 +164,13 @@ img, iframe { max-width: 100%; display: block; }
 .event-card .date { background: var(--amarillo-cempasuchil); color: var(--azul-noche); padding: 15px 10px; border-radius: 12px; text-align: center; min-width: 85px; font-weight: 800; }
 .date .day { display: block; font-size: 2rem; }
 
+/* ===================================== */
+/* 🌟 MAPA */
 .map-box { width: 100%; height: 450px; border-radius: var(--radius); overflow: hidden; border: 4px solid white; box-shadow: var(--shadow); }
 .map-box iframe { width: 100%; height: 100%; }
 
 /* ===================================== */
-/* 🌟 RESPONSIVE TOTAL (MÓVILES HASTA 768px) */
+/* 🌟 RESPONSIVE (768px y menos) */
 @media (max-width: 768px) {
     .menu-toggle { display: block; }
     .nav-links {
@@ -193,7 +213,7 @@ img, iframe { max-width: 100%; display: block; }
 }
 
 /* ===================================== */
-/* 🌟 MÓVILES PEQUEÑOS (≤ 480px) */
+/* 🌟 RESPONSIVE PEQUEÑO (480px y menos) */
 @media (max-width: 480px) {
     .hero h1 { font-size: 1.6rem; }
     .hero p, .timeline-content p { font-size: 0.95rem; }
